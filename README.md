@@ -9,7 +9,7 @@ git clone git@github.com:larseen/tdt4240-project.git
 ```
 
 # Workflow
-After a picking an issue and assigning yourself, a typical GitHub workflow is as follows:
+After a picking an issue and assigning yourself, do as follows:
 
 ### Pull the latest changes from GitHub
 Go to the master branch on your computer by running `git checkout master`. You can pull from the remote `master` branch like this:
@@ -26,6 +26,7 @@ A shorthand version of the commands above:
 ```
 git checkout -b name-of-your-branch
 ```
+If you are going to work on (for instance) issue 22, you should name your branch `tdt4240#22`.
 
 ### Do your changes, add files, commit files
 Do your changes. To get an overview of staged and unstaged files, run `git status`. 
@@ -41,6 +42,19 @@ When all files are staged/added, you can commit your changes by running `git com
 If the commit message is short, you can run `git commit -m "Your short message"`.
 
 [A guide on writing good commit messages](http://chris.beams.io/posts/git-commit/)
+
+##### Referencing issues in commit messages
+Reference issues in commits by simply entering the issue number anywhere in your commit message preceded by a `#`. For instance, if your commit resolves something in issue 22, your commit message could look like this:
+
+`#22 Fix something regarding this issue`
+or
+```
+Add something to something
+
+Resolves #22
+```
+
+If you enter certain keywords in a commit message followed by an issue reference, the issue will automatically be closed once the commit has been merged into `master`. [More on this here](https://help.github.com/articles/closing-issues-via-commit-messages/).
 
 ### Push your branch to GitHub
 ```
