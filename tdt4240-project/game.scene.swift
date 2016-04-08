@@ -18,5 +18,23 @@ class GameScene: SKScene {
         puck.physicsBody?.applyImpulse(CGVectorMake(30, -30))
         
         
+
+        let mallet = game.getMallet(self.frame.size.width, height: self.frame.size.height)
+        board.size = self.frame.size
+        self.addChild(puck)
+        self.addChild(board)
+        self.addChild(mallet)
+        
     }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            if(nodeAtPoint(location).name == "mallet"){
+                let touchedNode = nodeAtPoint(location)
+                touchedNode.position = location
+            }
+        }
+    }
+    
 }
