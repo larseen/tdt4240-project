@@ -15,6 +15,7 @@
 		1C12BD561CB7DF03004E9643 /* 16 - Perturbator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */; };
 		1C12BD5A1CB7E70C004E9643 /* game.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD591CB7E70C004E9643 /* game.controller.swift */; };
 		1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1DD8B21CB7E9C700F307B5 /* game.swift */; };
+		1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1DD8B41CB7F1E400F307B5 /* game.scene.swift */; };
 		1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */; };
 		1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */; };
 		1C5CF9141C8DB66F00738B5F /* tdt4240_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */; };
@@ -39,6 +40,7 @@
 		1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "16 - Perturbator.mp3"; sourceTree = "<group>"; };
 		1C12BD591CB7E70C004E9643 /* game.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.controller.swift; sourceTree = "<group>"; };
 		1C1DD8B21CB7E9C700F307B5 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
+		1C1DD8B41CB7F1E400F307B5 /* game.scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.scene.swift; sourceTree = "<group>"; };
 		1C5CF8F71C8DB66F00738B5F /* tdt4240-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tdt4240-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C5CF9081C8DB66F00738B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				1C12BD591CB7E70C004E9643 /* game.controller.swift */,
+				1C1DD8B41CB7F1E400F307B5 /* game.scene.swift */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */,
+				1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				1C12BD501CB7D918004E9643 /* music.swift in Sources */,
 				1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */,

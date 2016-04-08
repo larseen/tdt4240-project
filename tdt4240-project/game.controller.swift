@@ -19,6 +19,9 @@ class GameController: UIViewController {
         super.viewDidLoad()
         game = Game.instance
         print(game)
+        let scene = GameScene(size: view.bounds.size)
+        let skView = self.view as! SKView
+        skView.presentScene(scene)
     }
     
     override func shouldAutorotate() -> Bool {
