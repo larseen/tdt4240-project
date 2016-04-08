@@ -15,6 +15,7 @@
 		1C5CF9061C8DB66F00738B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9051C8DB66F00738B5F /* Assets.xcassets */; };
 		1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */; };
 		1C5CF9141C8DB66F00738B5F /* tdt4240_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */; };
+		1C7BB31B1CB7A0F900BE663D /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BB31A1CB7A0F900BE663D /* game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		1C5CF90F1C8DB66F00738B5F /* tdt4240-projectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tdt4240-projectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tdt4240_projectTests.swift; sourceTree = "<group>"; };
 		1C5CF9151C8DB66F00738B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C7BB31A1CB7A0F900BE663D /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		1C5CF8F91C8DB66F00738B5F /* tdt4240-project */ = {
 			isa = PBXGroup;
 			children = (
+				1C7BB3191CB7A0AB00BE663D /* components */,
 				1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */,
 				1C5CF8FC1C8DB66F00738B5F /* GameScene.sks */,
 				1C5CF8FE1C8DB66F00738B5F /* GameScene.swift */,
@@ -100,6 +103,14 @@
 				1C5CF9151C8DB66F00738B5F /* Info.plist */,
 			);
 			path = "tdt4240-projectTests";
+			sourceTree = "<group>";
+		};
+		1C7BB3191CB7A0AB00BE663D /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1C7BB31A1CB7A0F900BE663D /* game.swift */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				1C5CF8FF1C8DB66F00738B5F /* GameScene.swift in Sources */,
 				1C5CF9011C8DB66F00738B5F /* GameViewController.swift in Sources */,
 				1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */,
+				1C7BB31B1CB7A0F900BE663D /* game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +411,7 @@
 				1C5CF91A1C8DB66F00738B5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C5CF91B1C8DB66F00738B5F /* Build configuration list for PBXNativeTarget "tdt4240-projectTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +420,7 @@
 				1C5CF91D1C8DB66F00738B5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
