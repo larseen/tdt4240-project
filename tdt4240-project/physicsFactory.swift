@@ -8,7 +8,6 @@ class physicsFactory{
     }
     
     func setPhys(scene : SKScene){
-        scene.physicsBody = SKPhysicsBody(edgeLoopFromRect: scene.frame)
         scene.physicsBody?.friction = 0.5
         scene.physicsBody?.linearDamping = 0.3
         scene.physicsBody?.restitution = 1.0

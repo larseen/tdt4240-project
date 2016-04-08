@@ -18,6 +18,7 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
         mallet.name = "mallet";
         mallet.zPosition = 1
         mallet.setScale(CGFloat(0.35))
+        mallet.physicsBody = SKPhysicsBody(circleOfRadius: mallet.size.width/2)
         return mallet;
     }
 }
