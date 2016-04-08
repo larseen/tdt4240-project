@@ -17,7 +17,7 @@
 		1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */; };
 		1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */; };
 		1C5CF9141C8DB66F00738B5F /* tdt4240_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */; };
-		1C7BB31E1CB7A95400BE663D /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BB31D1CB7A95400BE663D /* game.swift */; };
+		1C7BB31B1CB7A0F900BE663D /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7BB31A1CB7A0F900BE663D /* game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +106,7 @@
 				1C12BD581CB7E6FC004E9643 /* game */,
 				1C12BD571CB7E6F3004E9643 /* main */,
 				1C7BB31C1CB7A94200BE663D /* components */,
+				1C7BB3191CB7A0AB00BE663D /* components */,
 				1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */,
 				1C12BD461CB7C59D004E9643 /* Assets.xcassets */,
 				1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */,

@@ -9,39 +9,39 @@
 import Foundation
 
 class Game {
-    
+
     /*
      *
      * PRIVATE VARIABLES
      *
      */
-    
+
     static let instance = Game()
     private var numPlayers = 1
     private var maxPlayers = 2
     private var minPlayers = 1
     private var board = Board()
-    
+
     /*
     *
     * RESET / INIT FUNCTIONS
     *
     */
-    
+
     private init() {
         numPlayers = 1;
     }
-    
+
     func reset() {
         numPlayers = 1
     }
-    
+
     /*
      *
      * PLAYER FUNCTIONS
      *
      */
-    
+
     func addPlayer() -> Int {
         if(numPlayers + 1 > 2){
             return numPlayers
@@ -50,7 +50,7 @@ class Game {
             return numPlayers
         }
     }
-    
+
     func removePlayer() -> Int {
         if(numPlayers - 1 < 1){
             return numPlayers
@@ -58,11 +58,11 @@ class Game {
             numPlayers -= 1
             return numPlayers
         }
-        
+
     }
-    
+
     func getPlayers() -> Int {
         return numPlayers
     }
-    
+
 }
