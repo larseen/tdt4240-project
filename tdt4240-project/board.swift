@@ -14,6 +14,7 @@ class Board : SKSpriteNode {
     
     func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
         board.position = CGPointMake(width/2, height/2)
+        board.zPosition = 0
         return board;
     }
     

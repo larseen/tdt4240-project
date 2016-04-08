@@ -2,7 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+<<<<<<< HEAD
+      "filename" : "12970114_10153285314621157_616613210_o.jpeg",
+=======
       "filename" : "board.png",
+>>>>>>> d0da76e939f360854047c8a8bc0614cb85c82e18
       "scale" : "1x"
     },
     {

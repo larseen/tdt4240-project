@@ -9,10 +9,11 @@
 import SpriteKit
 
 class puck: SKSpriteNode, SKPhysicsContactDelegate {
+     var puck = SKSpriteNode(imageNamed: "puck")
     
     private var _pointValue:Int = 100
     
-    var pointValue:Int {
+   /* var pointValue:Int {
         get {
             return _pointValue
         }
@@ -20,14 +21,13 @@ class puck: SKSpriteNode, SKPhysicsContactDelegate {
             _pointValue = newValue;
             
         }
-    }
+    }*/
 
-    
-    var puck = SKSpriteNode(imageNamed: "puck")
     
     func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
         puck.position = CGPointMake(width/2, height/2)
         puck.zPosition = 1
+        puck.physicsBody = SKPhysicsBody(circleOfRadius: puck.size.width/2)
         return puck;
     }
 }
