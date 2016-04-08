@@ -11,20 +11,6 @@ import SpriteKit
 class puck: SKSpriteNode, SKPhysicsContactDelegate {
     
     private var _pointValue:Int = 100
-
-    
-    
-    func Create(){
-        let texture = SKTexture(imageNamed: "puck")
-        self.texture = texture
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: self.size.width, height: self.size.height))
-        self.physicsBody?.restitution = 1.0
-        self.physicsBody?.friction = 0.0
-        self.physicsBody?.linearDamping = 0.0
-        self.physicsBody?.angularDamping = 0.0
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.allowsRotation = true
-    }
     
     var pointValue:Int {
         get {
@@ -35,17 +21,14 @@ class puck: SKSpriteNode, SKPhysicsContactDelegate {
             
         }
     }
-    
-    
-    
 
     
-
-
+    var puck = SKSpriteNode(imageNamed: "puck")
     
-    
-    
-    
-    
-
+    func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
+        puck.position = CGPointMake(width/2, height/2)
+        puck.zPosition = 1
+        return puck;
+    }
 }
+
