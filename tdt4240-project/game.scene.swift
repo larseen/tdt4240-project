@@ -7,10 +7,16 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         let game = Game.instance
-      //  let board = game.getBoard(CGRectGetMaxY(self.frame), height: CGRectGetMaxX(self.frame))
+        let board = game.getBoard(self.frame.size.width, height: self.frame.size.height)
         let puck = game.getPuck(self.frame.size.width, height: self.frame.size.height)
-      //  self.addChild(board)
-        self.addChild(settingsLabel)
+        let physics:physicsFactory = physicsFactory();
+        board.size = self.frame.size
+        
+        self.addChild(board)
         self.addChild(puck)
+        physics.setPhys(self)
+        puck.physicsBody?.applyImpulse(CGVectorMake(30, -30))
+        
+        
     }
 }
