@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Game {
     
@@ -63,6 +64,12 @@ class Game {
     
     func getPlayers() -> Int {
         return numPlayers
+    }
+    
+    
+    func getBoard(width : CGFloat, height : CGFloat) -> SKSpriteNode {
+        let boardSprite = board.get(width, height: height)
+        return boardSprite
     }
     
 }

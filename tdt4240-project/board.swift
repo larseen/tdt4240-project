@@ -10,7 +10,7 @@ import SpriteKit
 
 class Board : SKSpriteNode {
     
-    var board = SKSpriteNode(imageNamed: "Image")
+    var board = SKSpriteNode(imageNamed: "Board")
     
     func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
         board.position = CGPointMake(width/2, height/2)
