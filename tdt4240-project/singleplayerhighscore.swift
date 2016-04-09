@@ -20,20 +20,13 @@ class SinglePlayerHighscoreList: HighscoreList {
     
     init() {
         //FIX: laste opp fra local storage. Regne ut initial highscreThreshold.
-        print("party")
-        listLength=2
+        listLength=10
         self.listName = "Single Player Highscores"
         //self.currentHighscores = listFromStorage
         self.currentHighscores=[Highscore?](count: self.listLength, repeatedValue: nil)//trenger ikke å gjøres om vi har en liste med highscores i lager. Men den må lagres til å begynne med. Confused.
         updateHighscores(game1)
-        print(currentHighscores)
-        print(highscoreThreshold)
         updateHighscores(game2)
-        print(currentHighscores)
-        print(highscoreThreshold)
         updateHighscores(game3)
-        print(currentHighscores)
-        print(highscoreThreshold)
         updateHighscoreThreshold();
         //self.highscoreThreshold = highscoreThreshold //Regnes utifra listen fra storage
     }
@@ -51,7 +44,6 @@ class SinglePlayerHighscoreList: HighscoreList {
     
     func updateHighscoreThreshold() {
         if ((currentHighscores.last! != Optional(nil)!)) {
-            print ((currentHighscores.last! == Optional(nil)!))
         var lowestScore: Int64
         lowestScore = 10000000000000
         for highscore in currentHighscores {
