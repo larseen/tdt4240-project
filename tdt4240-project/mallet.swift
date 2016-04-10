@@ -19,6 +19,9 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
         mallet.zPosition = 1
         mallet.setScale(CGFloat(0.35))
         mallet.physicsBody = SKPhysicsBody(circleOfRadius: mallet.size.width/2)
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = constants.CollisionCategories.malCol
+        self.physicsBody?.contactTestBitMask = constants.CollisionCategories.puckCol
         return mallet;
     }
 }
