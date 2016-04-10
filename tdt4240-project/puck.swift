@@ -28,6 +28,9 @@ class puck: SKSpriteNode, SKPhysicsContactDelegate {
         puck.position = CGPointMake(width/2, height/2)
         puck.zPosition = 1
         puck.physicsBody = SKPhysicsBody(circleOfRadius: puck.size.width/2)
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = constants.CollisionCategories.puckCol
+        self.physicsBody?.contactTestBitMask = constants.CollisionCategories.malCol
         return puck;
     }
 }
