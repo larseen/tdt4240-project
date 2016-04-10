@@ -5,6 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Highscore List Controller-->
+        <scene sceneID="4hG-Qj-nGr">
+            <objects>
+                <viewController id="LSj-9Y-xah" customClass="HighscoreListController" customModule="tdt4240_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="d2b-Y0-O1v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HighscoreCell" id="EOP-bJ-fm8">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EOP-bJ-fm8" id="fRf-dc-Zfs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LSj-9Y-xah" id="haD-LQ-ArD"/>
+                            <outlet property="delegate" destination="LSj-9Y-xah" id="YO6-pX-CGO"/>
+                        </connections>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxw-nO-tcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="-552"/>
+        </scene>
         <!--Main Controller-->
         <scene sceneID="c9J-q0-NEM">
             <objects>
@@ -54,6 +82,13 @@
                                 <state key="normal" title="START GAME"/>
                                 <connections>
                                     <segue destination="CM6-yG-OgD" kind="show" id="vQN-dn-uMN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-1E-DGz">
+                                <rect key="frame" x="208" y="399" width="96" height="30"/>
+                                <state key="normal" title="HIGHSCORES"/>
+                                <connections>
+                                    <segue destination="LSj-9Y-xah" kind="show" id="3yI-oK-PoO"/>
                                 </connections>
                             </button>
                         </subviews>

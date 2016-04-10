@@ -20,8 +20,12 @@
 		1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */; };
 		1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */; };
 		1C5CF9141C8DB66F00738B5F /* tdt4240_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */; };
+		4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
+		C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80C1CB7A14100A21015 /* highscore.swift */; };
+		C4B6A80F1CB7A8EC00A21015 /* highscoreprotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */; };
+		C4B6A8111CB7A92100A21015 /* singleplayerhighscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +56,12 @@
 		1C5CF90F1C8DB66F00738B5F /* tdt4240-projectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tdt4240-projectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tdt4240_projectTests.swift; sourceTree = "<group>"; };
 		1C5CF9151C8DB66F00738B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscorelist.controller.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
+		C4B6A80C1CB7A14100A21015 /* highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscore.swift; sourceTree = "<group>"; };
+		C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscoreprotocol.swift; sourceTree = "<group>"; };
+		C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleplayerhighscore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +120,11 @@
 		1C5CF8F91C8DB66F00738B5F /* tdt4240-project */ = {
 			isa = PBXGroup;
 			children = (
+				4F0DAA2A1CB87207009837DE /* highscore */,
 				64BE38A61CB7F8DE001CE648 /* factories */,
 				1C12BD581CB7E6FC004E9643 /* game */,
 				1C12BD571CB7E6F3004E9643 /* main */,
-				1C7BB31C1CB7A94200BE663D /* components */,
+				C4B6A8071CB7A07900A21015 /* components */,
 				1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */,
 				1C12BD461CB7C59D004E9643 /* Assets.xcassets */,
 				1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */,
@@ -135,16 +144,12 @@
 			path = "tdt4240-projectTests";
 			sourceTree = "<group>";
 		};
-		1C7BB31C1CB7A94200BE663D /* components */ = {
+		4F0DAA2A1CB87207009837DE /* highscore */ = {
 			isa = PBXGroup;
 			children = (
-				1C12BD441CB7C3FA004E9643 /* board.swift */,
-				1C12BD4F1CB7D918004E9643 /* music.swift */,
-				1C1DD8B21CB7E9C700F307B5 /* game.swift */,
-				64BE38A11CB7F7C9001CE648 /* puck.swift */,
-				1C1DD8B61CB8187800F307B5 /* mallet.swift */,
+				4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */,
 			);
-			name = components;
+			name = highscore;
 			sourceTree = "<group>";
 		};
 		64BE38A61CB7F8DE001CE648 /* factories */ = {
@@ -153,6 +158,21 @@
 				64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */,
 			);
 			name = factories;
+			sourceTree = "<group>";
+		};
+		C4B6A8071CB7A07900A21015 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1C12BD441CB7C3FA004E9643 /* board.swift */,
+				1C12BD4F1CB7D918004E9643 /* music.swift */,
+				1C1DD8B21CB7E9C700F307B5 /* game.swift */,
+				64BE38A11CB7F7C9001CE648 /* puck.swift */,
+				1C1DD8B61CB8187800F307B5 /* mallet.swift */,
+				C4B6A80C1CB7A14100A21015 /* highscore.swift */,
+				C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */,
+				C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +281,12 @@
 			files = (
 				1C1DD8B71CB8187800F307B5 /* mallet.swift in Sources */,
 				64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */,
+				C4B6A80F1CB7A8EC00A21015 /* highscoreprotocol.swift in Sources */,
+				C4B6A8111CB7A92100A21015 /* singleplayerhighscore.swift in Sources */,
+				C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */,
 				1C5CF8FB1C8DB66F00738B5F /* AppDelegate.swift in Sources */,
 				1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */,
+				4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				1C12BD501CB7D918004E9643 /* music.swift in Sources */,
 				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
