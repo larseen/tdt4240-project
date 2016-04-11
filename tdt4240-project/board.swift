@@ -24,6 +24,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         CGPathCloseSubpath(wallLeft);
         leftWall = SKShapeNode(path: wallLeft)
         leftWall.position = CGPointMake(0, 0)
+        leftWall.physicsBody?.restitution = 1
         leftWall.physicsBody = SKPhysicsBody(edgeChainFromPath: wallLeft)
         leftWall.zPosition = 0
     }
@@ -37,6 +38,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         CGPathCloseSubpath(wallRight);
         rightWall = SKShapeNode(path: wallRight)
         rightWall.position = CGPointMake(0, 0)
+        rightWall.physicsBody?.restitution = 1
         rightWall.physicsBody = SKPhysicsBody(edgeChainFromPath: wallRight)
         rightWall.zPosition = 0
     }

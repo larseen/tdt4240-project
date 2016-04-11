@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(mallet)
         
         
-        puck.physicsBody!.applyImpulse(CGVectorMake(-10, -10))
+        puck.physicsBody!.applyImpulse(CGVectorMake(-10, 12))
         print(puck)
         print(puck.physicsBody!.categoryBitMask)
         print(CollisionCategories.puckCol)
@@ -61,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
-            puck.bounce()
+            firstBody.applyImpulse(CGVectorMake(1.0, 1.0))
         }
         
     }

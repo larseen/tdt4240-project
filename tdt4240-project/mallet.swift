@@ -13,6 +13,7 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
         self.name = "mallet";
         self.zPosition = 1
         self.setScale(CGFloat(0.35))
+        self.physicsBody?.restitution = 1
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.malCol

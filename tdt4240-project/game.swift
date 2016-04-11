@@ -42,6 +42,7 @@ class Game {
     
     func initGame(frame : CGRect) {
         board.initialize(frame)
+        puck.setPos(frame)
     }
     
     /*
