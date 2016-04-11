@@ -6,35 +6,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var board : Board!
     var puck: Puck!
-    var mallet : Mallet!
+    var playerOne : Player!
+    var playerTwo : Player!
     var direction : CGVector!
     
     override func didMoveToView(view: SKView) {
         
         let physics:physicsFactory = physicsFactory();
+        physicsWorld.contactDelegate = self
         physics.setPhys(self)
+        
+        
         let game = Game.instance
         game.initGame(self.frame)
+        
+        
         board = game.getBoard()
-        physicsWorld.contactDelegate = self
-        
-        let puck = game.getPuck()
-        let mallet = game.getMallet()
-        
+        puck = game.getPuck()
+        playerOne = Player(id: 1, name: "Player One", isAI: false)
+        playerTwo = Player(id: 2, name: "Player Two", isAI: false)
         
         self.addChild(board.leftWall)
         self.addChild(board.rightWall)
         self.addChild(board.board)
         self.addChild(puck)
-        self.addChild(mallet)
-        
-        
-        //puck.physicsBody!.applyImpulse(CGVectorMake(-1, 1))
-        print(puck)
-        print(puck.physicsBody!.categoryBitMask)
-        print(CollisionCategories.puckCol)
-        print(mallet.physicsBody!.categoryBitMask)
-        print(CollisionCategories.malCol)
+        self.addChild(playerOne.getMallet())
+        self.addChild(playerTwo.getMallet())
         
     }
     
@@ -91,13 +88,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
+
             firstBody.applyImpulse(direction)
-            
-            
+        
         }
         
-    }
-    override func update(currentTime: CFTimeInterval) {
     }
     
 }

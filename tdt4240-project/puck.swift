@@ -45,7 +45,7 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     
 
     func bounce(){
-        self.physicsBody?.applyImpulse(CGVectorMake(10, -10))
+        self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
         print("lol")
     }
 }

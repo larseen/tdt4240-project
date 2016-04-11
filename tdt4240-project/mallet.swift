@@ -25,7 +25,6 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
     required init?(coder aDecoder:NSCoder){
         super.init(coder: aDecoder)
     }
-    
 
     
 
