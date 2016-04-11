@@ -43,5 +43,19 @@ class Player {
         return mallet;
     }
     
+    func addScore(value : Int) -> Int {
+        score = score + value
+        return score
+    }
+    
+    func decreaseScore(value : Int) -> Int {
+        score = score - value
+        return score
+    }
+    
+    func getScore() -> Int {
+        return score
+    }
+    
     
 }

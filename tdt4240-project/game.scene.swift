@@ -33,8 +33,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(playerOne.getMallet())
         self.addChild(playerTwo.getMallet())
         
-        
-        // puck.physicsBody!.applyImpulse(CGVectorMake(-10, -10))
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
@@ -95,8 +93,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         }
         
-    }
-    override func update(currentTime: CFTimeInterval) {
     }
     
 }
