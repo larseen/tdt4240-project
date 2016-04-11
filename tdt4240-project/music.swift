@@ -8,30 +8,68 @@
 
 import AVFoundation
 
-var backgroundMusicPlayer = AVAudioPlayer()
-var musicPlaying = true
-
-func playBackgroundMusic() {
-    let url = NSBundle.mainBundle().URLForResource("16 - Perturbator.mp3", withExtension: nil)
-    guard let newURL = url else {
-        return
+func getMusicPreference() -> Bool{
+    let defaults = NSUserDefaults.standardUserDefaults()
+    if !defaults.dictionaryRepresentation().keys.contains("preferMusic") {
+        return true
     }
-    do {
+    return defaults.boolForKey("preferMusic")
+}
+
+let instance = music()
+
+func getMusicInstance() ->music{
+    return instance
+}
+
+
+class music {
+    var backgroundMusicPlayer: AVAudioPlayer
+    var musicPlaying:Bool
+    
+    
+    private init(){
+        print("init music class")
+        backgroundMusicPlayer = AVAudioPlayer()
+        let musicPreference = getMusicPreference()
+        musicPlaying = musicPreference
+        if musicPreference{
+            playBackgroundMusic()
+        }
+    }
+    
+    
+    
+    func playBackgroundMusic() {
         musicPlaying = true
-        backgroundMusicPlayer = try AVAudioPlayer(contentsOfURL: newURL)
-        backgroundMusicPlayer.numberOfLoops = -1
-        backgroundMusicPlayer.prepareToPlay()
-        backgroundMusicPlayer.play()
-    } catch let error as NSError {
-        print(error.description)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(true, forKey: "preferMusic")
+        let url = NSBundle.mainBundle().URLForResource("16 - Perturbator.mp3", withExtension: nil)
+        guard let newURL = url else {
+            return
+        }
+        do {
+            musicPlaying = true
+            backgroundMusicPlayer = try AVAudioPlayer(contentsOfURL: newURL)
+            backgroundMusicPlayer.numberOfLoops = -1
+            backgroundMusicPlayer.prepareToPlay()
+            backgroundMusicPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
     }
-}
 
-func stopBackgroundMusic() {
-    musicPlaying = false;
-    backgroundMusicPlayer.stop()
-}
 
-func statusBackgroundMusic() -> BooleanType {
-    return musicPlaying
+    
+
+    func stopBackgroundMusic() {
+        musicPlaying = false;
+        backgroundMusicPlayer.stop()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(false, forKey: "preferMusic")
+    }
+
+    func statusBackgroundMusic() -> BooleanType {
+        return musicPlaying
+    }
 }
