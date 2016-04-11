@@ -45,6 +45,5 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         }
     }
 
-
 }
 
