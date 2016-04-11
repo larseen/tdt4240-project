@@ -6,20 +6,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var board : Board!
     var puck: Puck!
-    var mallet : Mallet!
+    var playerOne : Player!
+    var playerTwo : Player!
     
     override func didMoveToView(view: SKView) {
         
         let physics:physicsFactory = physicsFactory();
+        physicsWorld.contactDelegate = self
         physics.setPhys(self)
+        
+        
         let game = Game.instance
         game.initGame(self.frame)
-        board = game.getBoard()
-        physicsWorld.contactDelegate = self
         
-        let puck = game.getPuck()
-        let playerOne = Player(id: 1, name: "Player One", isAI: false)
-        let playerTwo = Player(id: 2, name: "Player Two", isAI: false)
+        
+        board = game.getBoard()
+        puck = game.getPuck()
+        playerOne = Player(id: 1, name: "Player One", isAI: false)
+        playerTwo = Player(id: 2, name: "Player Two", isAI: false)
         
         
         self.addChild(board.leftWall)
