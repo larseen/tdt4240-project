@@ -40,32 +40,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
         var previousTimestamp = NSTimeInterval(0)
+        
+        let touch = touches.first
+        let location = touch!.locationInView(self.view)
+        let oldPosition = touch!.previousLocationInView(self.view)
+        print("location: ", location)
+        print("old: ", oldPosition)
+        let xOffset = oldPosition.x - location.x
+        let yOffset = oldPosition.y - location.y
+        let vectorLen = sqrt(xOffset * xOffset + yOffset * yOffset)
+        let time = touch!.timestamp - previousTimestamp
+        
+        
+        let speed = (5*Double(vectorLen) / time)
+        let CGSpeed = CGFloat(speed)
+        direction = CGVectorMake(5000*(CGSpeed*xOffset / vectorLen), 5000*(CGSpeed*yOffset / vectorLen))
+        let directionPath = CGPathCreateMutable();
+        CGPathMoveToPoint(directionPath, nil, oldPosition.x, oldPosition.y);
+        CGPathAddLineToPoint(directionPath, nil, location.x, location.y);
+        var directionPathNode = SKShapeNode(path: directionPath)
+        directionPathNode.lineWidth = 5;
+        directionPathNode.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
+        self.addChild(directionPathNode)
+        previousTimestamp = touch!.timestamp
+        
+        
+        
+        
         for touch in touches {
             let location = touch.locationInNode(self)
             if(nodeAtPoint(location).name == "mallet"){
                 let touchedNode = nodeAtPoint(location)
                 touchedNode.position = location
-                let oldPosition = touch.previousLocationInNode(touchedNode)
-                let xOffset = location.x - oldPosition.x
-                let yOffset = location.y - oldPosition.y
-                let vectorLen = sqrt(xOffset * xOffset + yOffset * yOffset)
-                let time = touch.timestamp - previousTimestamp
-                
-                print (vectorLen)
-                print (time)
-                
-                let speed = Double(vectorLen) / time
-                let CGSpeed = CGFloat(speed)
-                print (speed)
-                
-                direction = CGVectorMake( 400*(CGSpeed*xOffset / vectorLen), 400*(CGSpeed*yOffset / vectorLen))
-                print(direction)
-                
-                
-                previousTimestamp = touch.timestamp
-                
-                
             }
+            
         }
     }
     
@@ -84,6 +92,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
             firstBody.applyImpulse(direction)
+            
+            
         }
         
     }
