@@ -48,13 +48,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let oldPosition = touch.previousLocationInNode(touchedNode)
                 let xOffset = location.x - oldPosition.x
                 let yOffset = location.y - oldPosition.y
-                let vectorLen = sqrt(pow(xOffset, 2) + pow(yOffset, 2))
+                let vectorLen = sqrt(xOffset * xOffset + yOffset * yOffset)
                 let time = touch.timestamp - previousTimestamp
                 
-                let speed = 0*01 * (Double(vectorLen) / time)
-                let CGSpeed = CGFloat(speed)
+                print (vectorLen)
+                print (time)
                 
-                direction = CGVectorMake((CGSpeed*xOffset / vectorLen), (CGSpeed*yOffset / vectorLen))
+                let speed = Double(vectorLen) / time
+                let CGSpeed = CGFloat(speed)
+                print (speed)
+                
+                direction = CGVectorMake( 400*(CGSpeed*xOffset / vectorLen), 400*(CGSpeed*yOffset / vectorLen))
+                print(direction)
                 
                 
                 previousTimestamp = touch.timestamp
