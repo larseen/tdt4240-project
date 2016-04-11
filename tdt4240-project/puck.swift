@@ -14,13 +14,10 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         let texture = SKTexture(imageNamed: "puck")
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         self.zPosition = 1
-        self.name = "puck"
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
         self.physicsBody?.restitution = 1
-        self.physicsBody?.density = 0.5
+        self.physicsBody?.mass = 0.02
         self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.affectedByGravity = true
-        self.physicsBody?.dynamic = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
     
@@ -45,5 +42,11 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         }
     }
 
+    
+
+    func bounce(){
+        self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
+        print("lol")
+    }
 }
 
