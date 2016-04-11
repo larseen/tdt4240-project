@@ -8,8 +8,23 @@
 
 import SpriteKit
 
-class puck: SKSpriteNode, SKPhysicsContactDelegate {
-     var puck = SKSpriteNode(imageNamed: "puck")
+class Puck: SKSpriteNode, SKPhysicsContactDelegate {
+    var puck = SKSpriteNode(imageNamed: "puck")
+    init() {
+        let texture = SKTexture(imageNamed: "puck")
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        puck.position = CGPointMake(frame.size.width/2, frame.size.height/2)
+        puck.zPosition = 1
+        puck.physicsBody = SKPhysicsBody(circleOfRadius: puck.size.width/2.5)
+        //puck.physicsBody?.usesPreciseCollisionDetection = true
+        puck.physicsBody?.categoryBitMask = CollisionCategories.puckCol
+        puck.physicsBody?.contactTestBitMask = CollisionCategories.malCol
+    }
+    
+    required init?(coder aDecoder:NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
     
     private var _pointValue:Int = 100
     
@@ -24,14 +39,9 @@ class puck: SKSpriteNode, SKPhysicsContactDelegate {
     }*/
 
     
-    func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
-        puck.position = CGPointMake(width/2, height/2)
-        puck.zPosition = 1
-        puck.physicsBody = SKPhysicsBody(circleOfRadius: puck.size.width/2)
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.categoryBitMask = constants.CollisionCategories.puckCol
-        self.physicsBody?.contactTestBitMask = constants.CollisionCategories.malCol
-        return puck;
+
+    func bounce(){
+        self.puck.physicsBody?.applyImpulse(CGVectorMake(10, 0))
     }
 }
 
