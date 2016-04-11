@@ -43,6 +43,13 @@ class Game {
     func initGame(frame : CGRect) {
         board.initialize(frame)
         puck.setPos(frame)
+        if (numPlayers == 1){
+            let player:Player = Player()
+        }
+        else if (numPlayers == 2){
+            let player1:Player = Player()
+            let player2:Player = Player()
+        }
     }
     
     /*

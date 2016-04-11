@@ -22,6 +22,7 @@
 		1CDCCD4E1CBBA09700FB3C66 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCCD4D1CBBA09700FB3C66 /* player.swift */; };
 		1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */; };
 		4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */; };
+		644850221CBBEB3B00A190DF /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644850211CBBEB3B00A190DF /* player.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
 		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
@@ -62,6 +63,7 @@
 		1CDCCD4D1CBBA09700FB3C66 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ai.swift; sourceTree = "<group>"; };
 		4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscorelist.controller.swift; sourceTree = "<group>"; };
+		644850211CBBEB3B00A190DF /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
 		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */,
 				C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */,
 				64BE38AD1CBA9627001CE648 /* constants.swift */,
+				644850211CBBEB3B00A190DF /* player.swift */,
 				1CDCCD4D1CBBA09700FB3C66 /* player.swift */,
 				1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */,
 			);
@@ -313,6 +316,7 @@
 				1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
+				644850221CBBEB3B00A190DF /* player.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
 				1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */,
 				1C12BD5A1CB7E70C004E9643 /* game.controller.swift in Sources */,
