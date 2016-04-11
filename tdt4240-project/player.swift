@@ -1,3 +1,4 @@
+
 //
 //  player.swift
 //  tdt4240-project
@@ -56,6 +57,5 @@ class Player {
     func getScore() -> Int {
         return score
     }
-    
     
 }
