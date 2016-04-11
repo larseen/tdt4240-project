@@ -18,22 +18,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         let puck = game.getPuck()
-        let mallet = game.getMallet()
+        let playerOne = Player(id: 1, name: "Player One", isAI: false)
+        let playerTwo = Player(id: 2, name: "Player Two", isAI: false)
         
         
         self.addChild(board.leftWall)
         self.addChild(board.rightWall)
         self.addChild(board.board)
         self.addChild(puck)
-        self.addChild(mallet)
+        self.addChild(playerOne.getMallet())
+        self.addChild(playerTwo.getMallet())
         
         
         puck.physicsBody!.applyImpulse(CGVectorMake(-10, -10))
-        print(puck)
-        print(puck.physicsBody!.categoryBitMask)
-        print(CollisionCategories.puckCol)
-        print(mallet.physicsBody!.categoryBitMask)
-        print(CollisionCategories.malCol)
         
     }
     
