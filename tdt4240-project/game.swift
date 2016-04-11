@@ -23,7 +23,7 @@ class Game {
     private var minPlayers = 1
     private var board = Board()
     private var mallet = Mallet()
-    private var pukk = puck()
+    private var puck = Puck()
     
     
     /*
@@ -42,6 +42,7 @@ class Game {
     
     func initGame(frame : CGRect) {
         board.initialize(frame)
+        puck.setPos(frame)
     }
     
     /*
@@ -77,14 +78,12 @@ class Game {
         return board
     }
 
-    func getPuck(width : CGFloat, height : CGFloat) -> SKSpriteNode {
-        let puckSprite = pukk.get(width, height: height)
-        return puckSprite
+    func getPuck() -> Puck {
+        return puck
     }
     
-    func getMallet(width : CGFloat, height : CGFloat) -> SKSpriteNode {
-        let malletSprite = mallet.get(width, height: height)
-        return malletSprite
+    func getMallet() -> Mallet {
+        return mallet
     }
 
     

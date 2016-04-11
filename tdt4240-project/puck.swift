@@ -8,27 +8,45 @@
 
 import SpriteKit
 
-class puck: SKSpriteNode, SKPhysicsContactDelegate {
-     var puck = SKSpriteNode(imageNamed: "puck")
+class Puck: SKSpriteNode, SKPhysicsContactDelegate {
+    //var puck = SKSpriteNode(imageNamed: "puck")
+    init() {
+        let texture = SKTexture(imageNamed: "puck")
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        self.zPosition = 1
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
+        self.physicsBody?.restitution = 1
+        self.physicsBody?.mass = 0.02
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
+        self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
     
-    private var _pointValue:Int = 100
+    }
     
-   /* var pointValue:Int {
+    required init?(coder aDecoder:NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
+    func setPos(frame: CGRect){
+        self.position = CGPointMake (frame.width/2, frame.height/2)
+    }
+    
+    
+    private var pointValue:Int{
         get {
-            return _pointValue
+            return self.pointValue
         }
         set {
-            _pointValue = newValue;
+            self.pointValue = newValue;
             
         }
-    }*/
+    }
 
     
-    func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
-        puck.position = CGPointMake(width/2, height/2)
-        puck.zPosition = 1
-        puck.physicsBody = SKPhysicsBody(circleOfRadius: puck.size.width/2)
-        return puck;
+
+    func bounce(){
+        self.physicsBody?.applyImpulse(CGVectorMake(10, -10))
+        print("lol")
     }
 }
 

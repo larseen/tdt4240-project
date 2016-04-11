@@ -24,6 +24,7 @@
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
 		C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE4171CBBA8B100D844D5 /* settings.controller.swift */; };
 		C32FE41C1CBBA91400D844D5 /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE41B1CBBA91400D844D5 /* music.swift */; };
+		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
 		C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80C1CB7A14100A21015 /* highscore.swift */; };
 		C4B6A80F1CB7A8EC00A21015 /* highscoreprotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */; };
 		C4B6A8111CB7A92100A21015 /* singleplayerhighscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */; };
@@ -61,6 +62,7 @@
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
 		C32FE4171CBBA8B100D844D5 /* settings.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.controller.swift; sourceTree = "<group>"; };
 		C32FE41B1CBBA91400D844D5 /* music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
+		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C4B6A80C1CB7A14100A21015 /* highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscore.swift; sourceTree = "<group>"; };
 		C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscoreprotocol.swift; sourceTree = "<group>"; };
 		C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleplayerhighscore.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				C4B6A80C1CB7A14100A21015 /* highscore.swift */,
 				C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */,
 				C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */,
+				64BE38AD1CBA9627001CE648 /* constants.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -236,7 +239,7 @@
 				TargetAttributes = {
 					1C5CF8F61C8DB66F00738B5F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = X8A337DP2P;
+						DevelopmentTeam = ZS6M3WDUH3;
 					};
 					1C5CF90E1C8DB66F00738B5F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -299,6 +302,7 @@
 				C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */,
 				1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */,
 				4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */,
+				64BE38AE1CBA9627001CE648 /* constants.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
@@ -425,10 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "tdt4240-project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "group-1.tdt4240-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -436,10 +443,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "tdt4240-project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "group-1.tdt4240-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
