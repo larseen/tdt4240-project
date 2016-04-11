@@ -16,6 +16,7 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.zPosition = 1
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.5)
         self.physicsBody?.restitution = 1
+        self.physicsBody?.mass = 0.01
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
@@ -31,17 +32,15 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     }
     
     
-   // private var _pointValue:Int = 100
-    
-   /* var pointValue:Int {
+    private var pointValue:Int{
         get {
-            return _pointValue
+            return self.pointValue
         }
         set {
-            _pointValue = newValue;
+            self.pointValue = newValue;
             
         }
-    }*/
+    }
 
     
 
