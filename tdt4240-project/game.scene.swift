@@ -1,11 +1,11 @@
 import UIKit
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     weak var viewController: GameController!
     
     var board : Board!
-    var puck : Puck!
+    var puck: Puck!
     var mallet : Mallet!
     
     override func didMoveToView(view: SKView) {
@@ -15,6 +15,7 @@ class GameScene: SKScene {
         let game = Game.instance
         game.initGame(self.frame)
         board = game.getBoard()
+        physicsWorld.contactDelegate = self
         
         let puck = game.getPuck()
         let mallet = game.getMallet()
@@ -23,14 +24,15 @@ class GameScene: SKScene {
         self.addChild(board.leftWall)
         self.addChild(board.rightWall)
         self.addChild(board.board)
-        self.addChild(puck.puck)
-        self.addChild(mallet.mallet)
+        self.addChild(puck)
+        self.addChild(mallet)
         
         
-        puck.puck.physicsBody!.applyImpulse(CGVectorMake(10, -40))
-        print(puck.puck.physicsBody!.categoryBitMask)
+        puck.physicsBody!.applyImpulse(CGVectorMake(-10, -10))
+        print(puck)
+        print(puck.physicsBody!.categoryBitMask)
         print(CollisionCategories.puckCol)
-        print(mallet.mallet.physicsBody!.categoryBitMask)
+        print(mallet.physicsBody!.categoryBitMask)
         print(CollisionCategories.malCol)
         
     }
@@ -45,10 +47,10 @@ class GameScene: SKScene {
         }
     }
     
+    
     func didBeginContact(contact: SKPhysicsContact){
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
-        print("HEI")
         
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask{
             firstBody = contact.bodyA
@@ -57,8 +59,9 @@ class GameScene: SKScene {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
+        
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
-            print("hei")
+            puck.bounce()
         }
         
     }
