@@ -11,18 +11,25 @@ import SpriteKit
 class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
     
     var mallet = SKSpriteNode(imageNamed: "Mallet")
-
     
-    func get(width : CGFloat, height : CGFloat) -> SKSpriteNode{
-        mallet.position = CGPointMake(width/2, height/4)
+    init() {
+        let texture = SKTexture(imageNamed: "Mallet")
+        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        mallet.position = CGPointMake(frame.width/2, frame.height/4)
         mallet.name = "mallet";
         mallet.zPosition = 1
         mallet.setScale(CGFloat(0.35))
         mallet.physicsBody = SKPhysicsBody(circleOfRadius: mallet.size.width/2)
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.categoryBitMask = constants.CollisionCategories.malCol
-        self.physicsBody?.contactTestBitMask = constants.CollisionCategories.puckCol
-        return mallet;
+        //mallet.physicsBody?.usesPreciseCollisionDetection = true
+        mallet.physicsBody?.categoryBitMask = CollisionCategories.malCol
+        mallet.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
     }
+    
+    required init?(coder aDecoder:NSCoder){
+        super.init(coder: aDecoder)
+    }
+
+    
+
 }
 
