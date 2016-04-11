@@ -20,11 +20,12 @@
 		1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */; };
 		1C5CF9141C8DB66F00738B5F /* tdt4240_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */; };
 		4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */; };
+		644850221CBBEB3B00A190DF /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644850211CBBEB3B00A190DF /* player.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
+		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
 		C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE4171CBBA8B100D844D5 /* settings.controller.swift */; };
 		C32FE41C1CBBA91400D844D5 /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE41B1CBBA91400D844D5 /* music.swift */; };
-		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
 		C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80C1CB7A14100A21015 /* highscore.swift */; };
 		C4B6A80F1CB7A8EC00A21015 /* highscoreprotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */; };
 		C4B6A8111CB7A92100A21015 /* singleplayerhighscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */; };
@@ -58,11 +59,12 @@
 		1C5CF9131C8DB66F00738B5F /* tdt4240_projectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tdt4240_projectTests.swift; sourceTree = "<group>"; };
 		1C5CF9151C8DB66F00738B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscorelist.controller.swift; sourceTree = "<group>"; };
+		644850211CBBEB3B00A190DF /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
+		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C32FE4171CBBA8B100D844D5 /* settings.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.controller.swift; sourceTree = "<group>"; };
 		C32FE41B1CBBA91400D844D5 /* music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
-		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C4B6A80C1CB7A14100A21015 /* highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscore.swift; sourceTree = "<group>"; };
 		C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscoreprotocol.swift; sourceTree = "<group>"; };
 		C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleplayerhighscore.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				C4B6A80E1CB7A8EC00A21015 /* highscoreprotocol.swift */,
 				C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */,
 				64BE38AD1CBA9627001CE648 /* constants.swift */,
+				644850211CBBEB3B00A190DF /* player.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				64BE38AE1CBA9627001CE648 /* constants.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
+				644850221CBBEB3B00A190DF /* player.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
 				1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */,
 				1C12BD5A1CB7E70C004E9643 /* game.controller.swift in Sources */,
