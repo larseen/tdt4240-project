@@ -11,6 +11,7 @@ import SpriteKit
 
 
 class MainController: UIViewController {
+    let music = getMusicInstance()
     
     @IBOutlet weak var numPlayers: UILabel!
     var newGame : Game! = nil
@@ -30,10 +31,10 @@ class MainController: UIViewController {
          numPlayers.text = String(newGame.removePlayer())
     }
     @IBAction func toogleSound(sender: AnyObject) {
-        if(statusBackgroundMusic()){
-            stopBackgroundMusic()
+        if(music.statusBackgroundMusic()){
+            music.stopBackgroundMusic()
         }else{
-            playBackgroundMusic()
+            music.playBackgroundMusic()
         }
     }
     
