@@ -13,9 +13,10 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     init() {
         let texture = SKTexture(imageNamed: "puck")
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
-        self.position = CGPointMake (frame.size.width/2, frame.size.height/2)
         self.zPosition = 1
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.5)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
+        self.physicsBody?.restitution = 1
+        self.physicsBody?.mass = 0.02
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
@@ -26,18 +27,20 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         super.init(coder: aDecoder)
     }
     
+    func setPos(frame: CGRect){
+        self.position = CGPointMake (frame.width/2, frame.height/2)
+    }
     
-   // private var _pointValue:Int = 100
     
-   /* var pointValue:Int {
+    private var pointValue:Int{
         get {
-            return _pointValue
+            return self.pointValue
         }
         set {
-            _pointValue = newValue;
+            self.pointValue = newValue;
             
         }
-    }*/
+    }
 
     
 

@@ -33,6 +33,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         leftWall.fillColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
         leftWall.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
         leftWall.position = CGPointMake(0, 0)
+        leftWall.physicsBody?.restitution = 1
         leftWall.physicsBody = SKPhysicsBody(edgeChainFromPath: wallLeft)
         leftWall.zPosition = 0
     }
@@ -53,6 +54,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         rightWall.fillColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
         rightWall.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
         rightWall.position = CGPointMake(0, 0)
+        rightWall.physicsBody?.restitution = 1
         rightWall.physicsBody = SKPhysicsBody(edgeChainFromPath: wallRight)
         rightWall.zPosition = 0
     }
