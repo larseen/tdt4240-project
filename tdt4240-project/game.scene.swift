@@ -55,10 +55,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let directionPath = CGPathCreateMutable();
         CGPathMoveToPoint(directionPath, nil, oldPosition.x, oldPosition.y);
         CGPathAddLineToPoint(directionPath, nil, location.x, location.y);
-        var directionPathNode = SKShapeNode(path: directionPath)
-        directionPathNode.lineWidth = 5;
-        directionPathNode.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 1)
-        self.addChild(directionPathNode)
         previousTimestamp = touch!.timestamp
         
         
