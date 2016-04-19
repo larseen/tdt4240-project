@@ -13,6 +13,7 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     init() {
         let texture = SKTexture(imageNamed: "puck")
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        self.setScale(0.4)
         self.zPosition = 1
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
         self.physicsBody?.restitution = 1

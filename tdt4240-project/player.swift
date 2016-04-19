@@ -23,6 +23,7 @@ class Player {
     private var name : String
     private var isAI : Bool
     private var score : Int
+    private var color: String
     
     
     /*
@@ -31,12 +32,13 @@ class Player {
      *
      */
     
-    init(id : Int, name : String, isAI : Bool) {
+    init(id : Int, name : String, isAI : Bool, color: String) {
         self.id = id
-        self.mallet = Mallet()
+        self.mallet = Mallet(color: color)
         self.name = name
         self.score = 0
         self.isAI = isAI || false
+        self.color = color
     }
     
     
@@ -57,5 +59,7 @@ class Player {
     func getScore() -> Int {
         return score
     }
+    
+    
     
 }

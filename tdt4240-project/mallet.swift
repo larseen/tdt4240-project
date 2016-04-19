@@ -2,13 +2,14 @@
 
 import SpriteKit
 
+let malletFileNames:[String:String] = ["red":"MalletRed", "blue":"MalletBlue"]
 
 class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
     
     //var mallet = SKSpriteNode(imageNamed: "Mallet")
     
-    init() {
-        let texture = SKTexture(imageNamed: "Mallet")
+    init(color: String) {
+        let texture = SKTexture(imageNamed: malletFileNames[color]!)
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         self.position = CGPointMake(frame.width/2, frame.height/4)
         self.name = "mallet";
