@@ -49,5 +49,9 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
         print("lol")
     }
+    
+    func setVelocity(){
+        self.physicsBody?.velocity = CGVectorMake(0, 0)
+    }
 }
 

@@ -41,8 +41,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touch = touches.first
         let location = touch!.locationInView(self.view)
         let oldPosition = touch!.previousLocationInView(self.view)
-        print("location: ", location)
-        print("old: ", oldPosition)
+        //print("location: ", location)
+        //print("old: ", oldPosition)
         let xOffset = oldPosition.x - location.x
         let yOffset = oldPosition.y - location.y
         let vectorLen = sqrt(xOffset * xOffset + yOffset * yOffset)
@@ -85,10 +85,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
 
-            firstBody.applyImpulse(direction)
+            puck.physicsBody?.applyImpulse(direction)
         
         }
         
     }
+    
+    func puckIsOffScreen(node:SKSpriteNode){
+        if (!CGRectContainsPoint(self.frame, CGPointMake(puck.frame.minX, puck.frame.minY))){
+            let waitToRespawn = SKAction.waitForDuration(1.5)
+            let remove = SKAction.hide()
+            let show = SKAction.unhide()
+            let moveBackx = SKAction.moveToX(self.frame.size.width/2, duration: 0)
+            let moveBacky = SKAction.moveToY(self.frame.size.height/2, duration: 0)
+            puck.runAction(SKAction.sequence([waitToRespawn, remove]))
+            puck.runAction(SKAction.sequence([waitToRespawn,moveBackx,moveBacky,show]))
+            puck.physicsBody?.velocity = CGVectorMake(0, 0)
+            
+            
+            
+            
+            
+        }
+    }
+    
+    override func update(currentTime: CFTimeInterval) {
+        puckIsOffScreen(puck)
+        
+        
+    }
+
     
 }
