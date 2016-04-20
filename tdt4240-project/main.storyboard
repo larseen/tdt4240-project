@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dxM-QB-tnx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dxM-QB-tnx">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Highscore List Controller-->
@@ -18,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EOP-bJ-fm8" id="fRf-dc-Zfs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -51,53 +52,120 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssf-wV-FTu">
-                                <rect key="frame" x="235" y="178" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqJ-fm-14W">
-                                <rect key="frame" x="298" y="174" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqJ-fm-14W">
+                                <rect key="frame" x="353" y="178" width="35" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oqJ-fm-14W" secondAttribute="height" multiplier="7:6" id="CKz-vO-FR4"/>
+                                </constraints>
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <action selector="addPlayer:" destination="dxM-QB-tnx" eventType="touchUpInside" id="IQu-GM-1JY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVG-D4-1wL">
-                                <rect key="frame" x="189" y="174" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVG-D4-1wL">
+                                <rect key="frame" x="213" y="178" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fVG-D4-1wL" secondAttribute="height" multiplier="1:1" id="W35-JU-UuL"/>
+                                </constraints>
                                 <state key="normal" title="-"/>
                                 <connections>
                                     <action selector="removePlayer:" destination="dxM-QB-tnx" eventType="touchUpInside" id="RVw-bQ-YxA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCk-K4-pYk">
-                                <rect key="frame" x="228" y="149" width="57" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCk-K4-pYk">
+                                <rect key="frame" x="272" y="149" width="57" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rCk-K4-pYk" secondAttribute="height" multiplier="19:7" id="i3z-33-3qB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-t4-Coq">
-                                <rect key="frame" x="171" y="370" width="170" height="30"/>
-                                <state key="normal" title="START GAME"/>
-                                <connections>
-                                    <segue destination="CM6-yG-OgD" kind="show" id="vQN-dn-uMN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-1E-DGz">
-                                <rect key="frame" x="208" y="399" width="96" height="30"/>
-                                <state key="normal" title="HIGHSCORES"/>
-                                <connections>
-                                    <segue destination="LSj-9Y-xah" kind="show" id="3yI-oK-PoO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-8O-QMW">
-                                <rect key="frame" x="44" y="505" width="57" height="30"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="O1x-88-YuX" kind="show" id="fNR-ls-IgW"/>
-                                </connections>
-                            </button>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="reK-d2-BU2">
+                                <rect key="frame" x="213" y="284" width="175" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="reK-d2-BU2" id="cCF-P6-qvG">
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKo-t4-Coq">
+                                            <rect key="frame" x="-33" y="8" width="240" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="nKo-t4-Coq" secondAttribute="height" multiplier="17:3" id="mLU-yI-hUw"/>
+                                            </constraints>
+                                            <state key="normal" title="START GAME">
+                                                <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="CM6-yG-OgD" kind="show" id="vQN-dn-uMN"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </tableViewCellContentView>
+                                <color key="tintColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="reK-d2-BU2" secondAttribute="height" multiplier="150:11" id="t3L-EB-2Kv"/>
+                                </constraints>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="53L-Fq-EX0">
+                                <rect key="frame" x="213" y="326" width="175" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53L-Fq-EX0" id="RA3-kr-r3w">
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-8O-QMW">
+                                            <rect key="frame" x="51" y="8" width="72" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Q4y-8O-QMW" secondAttribute="height" multiplier="12:5" id="9S1-qi-Kru"/>
+                                            </constraints>
+                                            <state key="normal" title="SETTINGS">
+                                                <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="O1x-88-YuX" kind="show" id="fNR-ls-IgW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="53L-Fq-EX0" secondAttribute="height" multiplier="150:11" id="rmf-eB-bpa"/>
+                                </constraints>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-J2-Oi7">
+                                <rect key="frame" x="213" y="368" width="175" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vUg-J2-Oi7" id="Hxm-V9-NuJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-1E-DGz">
+                                            <rect key="frame" x="-33" y="5" width="240" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="k3C-1E-DGz" secondAttribute="height" multiplier="16:5" id="jGr-8Y-ysC"/>
+                                            </constraints>
+                                            <state key="normal" title="HIGHSCORES">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="LSj-9Y-xah" kind="show" id="3yI-oK-PoO"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="tintColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vUg-J2-Oi7" secondAttribute="height" multiplier="150:11" id="I42-gT-0DQ"/>
+                                </constraints>
+                            </tableViewCell>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssf-wV-FTu">
+                                <rect key="frame" x="279" y="182" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ssf-wV-FTu" secondAttribute="height" multiplier="2:1" id="TSf-hI-8C7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -184,4 +252,5 @@
             <point key="canvasLocation" x="1434" y="423"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
 </document>
