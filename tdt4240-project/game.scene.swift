@@ -39,19 +39,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var previousTimestamp = NSTimeInterval(0)
         
         let touch = touches.first
-        let location = touch!.locationInView(self.view)
-        let oldPosition = touch!.previousLocationInView(self.view)
+        let location = touch!.locationInNode(puck)
+        let oldPosition = touch!.previousLocationInNode(puck)
         //print("location: ", location)
         //print("old: ", oldPosition)
         let xOffset = oldPosition.x - location.x
         let yOffset = oldPosition.y - location.y
-        let vectorLen = sqrt(xOffset * xOffset + yOffset * yOffset)
+        let vectorLen = sqrt((xOffset * xOffset) + (yOffset * yOffset))
         let time = touch!.timestamp - previousTimestamp
+        print(time)
         
         
-        let speed = (5*Double(vectorLen) / time)
+        let speed = (Double(vectorLen) / time)
         let CGSpeed = CGFloat(speed)
-        direction = CGVectorMake(5000*(CGSpeed*xOffset / vectorLen), 5000*(CGSpeed*yOffset / vectorLen))
+        direction = CGVectorMake(20000*(CGSpeed*xOffset / vectorLen), 20000*(CGSpeed*yOffset / vectorLen))
         let directionPath = CGPathCreateMutable();
         CGPathMoveToPoint(directionPath, nil, oldPosition.x, oldPosition.y);
         CGPathAddLineToPoint(directionPath, nil, location.x, location.y);
@@ -84,15 +85,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
+            
+            let impulse = SKAction.applyImpulse(direction, duration: 0.001)
+            let waitToKnock = SKAction.waitForDuration(0.9)
 
-            puck.physicsBody?.applyImpulse(direction)
+            puck.runAction(SKAction.sequence([impulse, waitToKnock]))
+           
         
         }
         
     }
     
     func puckIsOffScreen(node:SKSpriteNode){
-        if (!CGRectContainsPoint(self.frame, CGPointMake(puck.frame.minX, puck.frame.minY))){
+        if (!CGRectContainsPoint(self.frame, CGPointMake(puck.frame.midX, puck.frame.minY + 10))){
             let waitToRespawn = SKAction.waitForDuration(1.5)
             let remove = SKAction.hide()
             let show = SKAction.unhide()
