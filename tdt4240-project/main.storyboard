@@ -113,16 +113,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-8O-QMW">
-                                            <rect key="frame" x="51" y="8" width="72" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-1E-DGz">
+                                            <rect key="frame" x="-33" y="7" width="240" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Q4y-8O-QMW" secondAttribute="height" multiplier="12:5" id="9S1-qi-Kru"/>
+                                                <constraint firstAttribute="width" secondItem="k3C-1E-DGz" secondAttribute="height" multiplier="16:5" id="jGr-8Y-ysC"/>
                                             </constraints>
-                                            <state key="normal" title="SETTINGS">
+                                            <state key="normal" title="HIGHSCORES">
                                                 <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </state>
                                             <connections>
-                                                <segue destination="O1x-88-YuX" kind="show" id="fNR-ls-IgW"/>
+                                                <segue destination="LSj-9Y-xah" kind="show" id="3yI-oK-PoO"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -138,16 +138,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-1E-DGz">
-                                            <rect key="frame" x="-33" y="5" width="240" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-8O-QMW">
+                                            <rect key="frame" x="51" y="7" width="72" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="k3C-1E-DGz" secondAttribute="height" multiplier="16:5" id="jGr-8Y-ysC"/>
+                                                <constraint firstAttribute="width" secondItem="Q4y-8O-QMW" secondAttribute="height" multiplier="12:5" id="9S1-qi-Kru"/>
                                             </constraints>
-                                            <state key="normal" title="HIGHSCORES">
+                                            <state key="normal" title="SETTINGS">
                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="LSj-9Y-xah" kind="show" id="3yI-oK-PoO"/>
+                                                <segue destination="O1x-88-YuX" kind="show" id="fNR-ls-IgW"/>
                                             </connections>
                                         </button>
                                     </subviews>
