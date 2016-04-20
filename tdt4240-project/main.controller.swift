@@ -25,6 +25,7 @@ class MainController: UIViewController {
    
     @IBAction func addPlayer(sender: AnyObject) {
         numPlayers.text = String(newGame.addPlayer())
+
     }
     
     @IBAction func removePlayer(sender: AnyObject) {

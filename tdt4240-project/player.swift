@@ -24,6 +24,7 @@ class Player {
     private var isAI : Bool
     private var score : Int
     private var color: String
+    private var homeGoal: String
     
     
     /*
@@ -32,13 +33,17 @@ class Player {
      *
      */
     
-    init(id : Int, name : String, isAI : Bool, color: String) {
+    init(id : Int, name : String, isAI : Bool, color: String, homeGoal: String) {
         self.id = id
         self.mallet = Mallet(color: color)
         self.name = name
         self.score = 0
         self.isAI = isAI || false
         self.color = color
+        self.homeGoal = homeGoal
+        if (isAI){
+            mallet.name = "aiMallet"
+        }
     }
     
     

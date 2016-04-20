@@ -13,6 +13,8 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     var board = SKSpriteNode(imageNamed: "Board")
     var leftWall : SKShapeNode!
     var rightWall : SKShapeNode!
+    var topGoal : SKShapeNode!
+    var bottomGoal: SKShapeNode!
     let x = CGFloat(60)
     let w = CGFloat(4)
     
@@ -59,9 +61,43 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         rightWall.zPosition = 0
     }
     
+    func createTopGoal(width : CGFloat, height : CGFloat){
+    
+        let goalTop = CGPathCreateMutable();
+        
+        CGPathMoveToPoint(goalTop, nil, CGFloat(width/2-x), CGFloat(height));
+        CGPathAddLineToPoint(goalTop, nil, CGFloat(width/2+x), CGFloat(height));
+        CGPathAddLineToPoint(goalTop, nil, CGFloat(width/2+x), CGFloat(height)-w);
+        CGPathAddLineToPoint(goalTop, nil, CGFloat(width/2-x), CGFloat(height)-w);
+        CGPathCloseSubpath(goalTop);
+        topGoal = SKShapeNode(path: goalTop)
+        topGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
+        topGoal.position = CGPointMake(0, 0)
+        topGoal.physicsBody?.restitution = 0
+        topGoal.zPosition = 0
+    }
+    
+    func createBottomGoal(width : CGFloat, height : CGFloat){
+        
+        let goalBottom = CGPathCreateMutable();
+        
+        CGPathMoveToPoint(goalBottom, nil, CGFloat(width/2-x), CGFloat(0));
+        CGPathAddLineToPoint(goalBottom, nil, CGFloat(width/2+x), CGFloat(0));
+        CGPathAddLineToPoint(goalBottom, nil, CGFloat(width/2+x), CGFloat(w));
+        CGPathAddLineToPoint(goalBottom, nil, CGFloat(width/2-x), CGFloat(w));
+        CGPathCloseSubpath(goalBottom);
+        bottomGoal = SKShapeNode(path: goalBottom)
+        bottomGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
+        bottomGoal.position = CGPointMake(0, 0)
+        bottomGoal.physicsBody?.restitution = 0
+        bottomGoal.zPosition = 0
+    }
+    
     func initialize (frame: CGRect) {
         createLeftWall(frame.size.width, height: frame.size.height)
         createRightWall(frame.size.width, height: frame.size.height)
+        createBottomGoal(frame.size.width, height: frame.size.height)
+        createTopGoal(frame.size.width, height: frame.size.height)
         board.position = CGPointMake(frame.size.width/2, frame.size.height/2)
         board.size = frame.size
         board.zPosition = -1
