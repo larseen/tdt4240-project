@@ -23,15 +23,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         board = game.getBoard()
         puck = game.getPuck()
-        playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue")
-        playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red")
+        if (game.getPlayers() == 2){
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "top")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "bottom")
+
+        }
+        else {
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "top")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "bottom")
+            
+        }
         
         self.addChild(board.leftWall)
         self.addChild(board.rightWall)
+        self.addChild(board.topGoal)
+        self.addChild(board.bottomGoal)
         self.addChild(board.board)
         self.addChild(puck)
         self.addChild(playerOne.getMallet())
         self.addChild(playerTwo.getMallet())
+        
         
     }
     
