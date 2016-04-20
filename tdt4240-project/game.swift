@@ -22,7 +22,7 @@ class Game {
     private var maxPlayers = 2
     private var minPlayers = 1
     private var board = Board()
-    private var mallet = Mallet()
+    private var mallet = Mallet(color: "red")
     private var puck = Puck()
     
     
