@@ -9,12 +9,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerOne : Player!
     var playerTwo : Player!
     var direction : CGVector!
+    var ai: AI!
     
     override func didMoveToView(view: SKView) {
         
         let physics:physicsFactory = physicsFactory();
         physicsWorld.contactDelegate = self
         physics.setPhys(self)
+        ai = AI()
         
         
         let game = Game.instance
@@ -24,13 +26,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         board = game.getBoard()
         puck = game.getPuck()
         if (game.getPlayers() == 2){
-            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "top")
-            playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "bottom")
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "top")
 
         }
         else {
-            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "top")
-            playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "bottom")
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "top")
             
         }
         
@@ -81,6 +83,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    override func update(currentTime: NSTimeInterval) {
+        if playerTwo.getIsAI() == 1{
+            let action = ai.newAction(playerTwo, playerPos: playerTwo.getMallet().position, puckPos: puck.position)
+            playerTwo.getMallet().runAction(action)
+        }
+        
+    }
+    
     
     func didBeginContact(contact: SKPhysicsContact){
         var firstBody: SKPhysicsBody
@@ -95,8 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
-
-            firstBody.applyImpulse(direction)
+            firstBody.applyImpulse(CGVectorMake(5000*secondBody.velocity.dx, secondBody.velocity.dy*5000))
         
         }
         
