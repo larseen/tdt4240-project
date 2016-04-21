@@ -10,7 +10,6 @@
 		1C12BD451CB7C3FA004E9643 /* board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD441CB7C3FA004E9643 /* board.swift */; };
 		1C12BD471CB7C59D004E9643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD461CB7C59D004E9643 /* Assets.xcassets */; };
 		1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD511CB7D9A5004E9643 /* main.controller.swift */; };
-		1C12BD541CB7DC6B004E9643 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD531CB7DC6B004E9643 /* main.storyboard */; };
 		1C12BD561CB7DF03004E9643 /* 16 - Perturbator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */; };
 		1C12BD5A1CB7E70C004E9643 /* game.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD591CB7E70C004E9643 /* game.controller.swift */; };
 		1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1DD8B21CB7E9C700F307B5 /* game.swift */; };
@@ -25,6 +24,7 @@
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
 		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
+		98E58AC81CC8F655000064AA /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E58AC71CC8F655000064AA /* main.storyboard */; };
 		C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE4171CBBA8B100D844D5 /* settings.controller.swift */; };
 		C32FE41C1CBBA91400D844D5 /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE41B1CBBA91400D844D5 /* music.swift */; };
 		C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6A80C1CB7A14100A21015 /* highscore.swift */; };
@@ -46,7 +46,6 @@
 		1C12BD441CB7C3FA004E9643 /* board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = board.swift; sourceTree = "<group>"; };
 		1C12BD461CB7C59D004E9643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C12BD511CB7D9A5004E9643 /* main.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.controller.swift; sourceTree = "<group>"; };
-		1C12BD531CB7DC6B004E9643 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 		1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "16 - Perturbator.mp3"; sourceTree = "<group>"; };
 		1C12BD591CB7E70C004E9643 /* game.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.controller.swift; sourceTree = "<group>"; };
 		1C1DD8B21CB7E9C700F307B5 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
 		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		98E58AC71CC8F655000064AA /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 		C32FE4171CBBA8B100D844D5 /* settings.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.controller.swift; sourceTree = "<group>"; };
 		C32FE41B1CBBA91400D844D5 /* music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
 		C4B6A80C1CB7A14100A21015 /* highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscore.swift; sourceTree = "<group>"; };
@@ -136,10 +136,10 @@
 				C4B6A8071CB7A07900A21015 /* components */,
 				1C5CF8FA1C8DB66F00738B5F /* AppDelegate.swift */,
 				1C12BD461CB7C59D004E9643 /* Assets.xcassets */,
+				98E58AC71CC8F655000064AA /* main.storyboard */,
 				1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */,
 				1C5CF90A1C8DB66F00738B5F /* Info.plist */,
 				1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */,
-				1C12BD531CB7DC6B004E9643 /* main.storyboard */,
 			);
 			path = "tdt4240-project";
 			sourceTree = "<group>";
@@ -280,8 +280,8 @@
 			files = (
 				1C12BD561CB7DF03004E9643 /* 16 - Perturbator.mp3 in Resources */,
 				1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */,
-				1C12BD541CB7DC6B004E9643 /* main.storyboard in Resources */,
 				1C12BD471CB7C59D004E9643 /* Assets.xcassets in Resources */,
+				98E58AC81CC8F655000064AA /* main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
