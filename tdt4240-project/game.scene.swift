@@ -87,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: NSTimeInterval) {
         puckIsOffScreen(puck)
-        if (playerTwo.getIsAI()){
+        if (playerTwo.getIsAi()){
             let action = ai.newAction(playerTwo, playerPos: playerTwo.getMallet().position, puckPos: puck.position)
             playerTwo.getMallet().runAction(action)
         }
@@ -109,7 +109,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
             
-            if ((playerTwo.getIsAi()) && secondBody.isEqual(playerTwo)){
+            if ((playerTwo.getIsAi()) && secondBody.isEqual(playerTwo.getMallet().physicsBody)){
+                print("hei")
         
             }
             else{
