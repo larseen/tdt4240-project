@@ -44,26 +44,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(playerTwo.getMallet())
         
         
+        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
         var previousTimestamp = NSTimeInterval(0)
         
         let touch = touches.first
-        let location = touch!.locationInNode(puck)
-        let oldPosition = touch!.previousLocationInNode(puck)
+        let location = touch!.locationInNode(self)
+        let oldPosition = touch!.previousLocationInNode(self)
         //print("location: ", location)
         //print("old: ", oldPosition)
         let xOffset = oldPosition.x - location.x
         let yOffset = oldPosition.y - location.y
         let vectorLen = sqrt((xOffset * xOffset) + (yOffset * yOffset))
         let time = touch!.timestamp - previousTimestamp
-        print(time)
+        //print(time)
         
         
-        let speed = (Double(vectorLen) / time)
+        let speed = (Double(vectorLen) / time) * 10
         let CGSpeed = CGFloat(speed)
-        direction = CGVectorMake(20000*(CGSpeed*xOffset / vectorLen), 20000*(CGSpeed*yOffset / vectorLen))
+        direction = CGVectorMake(25000*(CGSpeed*xOffset / vectorLen), 25000*(CGSpeed*yOffset / vectorLen))
         let directionPath = CGPathCreateMutable();
         CGPathMoveToPoint(directionPath, nil, oldPosition.x, oldPosition.y);
         CGPathAddLineToPoint(directionPath, nil, location.x, location.y);
@@ -97,12 +98,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
             
-            let impulse = SKAction.applyImpulse(direction, duration: 0.001)
-            let waitToKnock = SKAction.waitForDuration(0.9)
-
-            puck.runAction(SKAction.sequence([impulse, waitToKnock]))
-           
+            if ((playerTwo.getIsAi()) && secondBody.isEqual(playerTwo)){
         
+            }
+            else{
+                let impulse = SKAction.applyImpulse(direction, duration: 0.001)
+                let waitToKnock = SKAction.waitForDuration(0.9)
+                print (direction)
+                puck.runAction(SKAction.sequence([impulse, waitToKnock]))
+                secondBody.velocity = CGVectorMake(0, 0)
+            }
+        }
+     
+            
+        
+        if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.botCol)){
+            playerOne.addScore(1)
+            print(playerOne.getScore())
+        }
+        if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.topCol)){
+            playerTwo.addScore(1)
+            print(playerTwo.getScore())
         }
         
     }

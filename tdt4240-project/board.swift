@@ -74,7 +74,10 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         topGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
         topGoal.position = CGPointMake(0, 0)
         topGoal.physicsBody?.restitution = 0
+        topGoal.physicsBody?.categoryBitMask = CollisionCategories.topCol
+        topGoal.physicsBody?.collisionBitMask = CollisionCategories.puckCol
         topGoal.zPosition = 0
+        print(topGoal.physicsBody?.categoryBitMask)
     }
     
     func createBottomGoal(width : CGFloat, height : CGFloat){
@@ -90,6 +93,9 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         bottomGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
         bottomGoal.position = CGPointMake(0, 0)
         bottomGoal.physicsBody?.restitution = 0
+        bottomGoal.physicsBody?.categoryBitMask = CollisionCategories.botCol
+        bottomGoal.physicsBody?.collisionBitMask = CollisionCategories.puckCol
+        print(bottomGoal.physicsBody?.categoryBitMask)
         bottomGoal.zPosition = 0
     }
     
