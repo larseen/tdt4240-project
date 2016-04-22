@@ -21,6 +21,7 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
+        self.physicsBody?.collisionBitMask = CollisionCategories.malCol
     
     }
     
