@@ -9,12 +9,13 @@
 import SpriteKit
 
 class Puck: SKSpriteNode, SKPhysicsContactDelegate {
-    //var puck = SKSpriteNode(imageNamed: "puck")
+    let points = 100
     init() {
         let texture = SKTexture(imageNamed: "puck")
         super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
         self.setScale(0.4)
         self.zPosition = 1
+        self.name = "puck"
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
         self.physicsBody?.restitution = 1
         self.physicsBody?.mass = 0.02
@@ -33,22 +34,14 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.position = CGPointMake (frame.width/2, frame.height/2)
     }
     
-    
-    private var pointValue:Int{
-        get {
-            return self.pointValue
-        }
-        set {
-            self.pointValue = newValue;
-            
-        }
-    }
-
-    
 
     func bounce(){
         self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
         print("lol")
+    }
+    
+    func getPoints() -> Int{
+        return points
     }
     
     func setVelocity(){

@@ -7,10 +7,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var board : Board!
     var puck: Puck!
     var playerOne : Player!
+    var playerOneScore : SKLabelNode!
+    var playerTwoScore : SKLabelNode!
     var playerTwo : Player!
     var direction : CGVector!
     var ai: AI!
-    var updatesCalled = 0;
     
     override func didMoveToView(view: SKView) {
         
@@ -36,7 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "top")
             
         }
-        
+        playerOneScore = board.bottomScore
+        playerTwoScore = board.topScore
         self.addChild(board.leftWall)
         self.addChild(board.rightWall)
         self.addChild(board.topGoal)
@@ -45,6 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(puck)
         self.addChild(playerOne.getMallet())
         self.addChild(playerTwo.getMallet())
+        self.addChild(playerOneScore);
+        self.addChild(playerTwoScore);
+        
     
         
     }
@@ -55,13 +60,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touch = touches.first
         let location = touch!.locationInNode(self)
         let oldPosition = touch!.previousLocationInNode(self)
-        //print("location: ", location)
-        //print("old: ", oldPosition)
         let xOffset = oldPosition.x - location.x
         let yOffset = oldPosition.y - location.y
         let vectorLen = sqrt((xOffset * xOffset) + (yOffset * yOffset))
         let time = touch!.timestamp - previousTimestamp
-        //print(time)
         
         
         let speed = (Double(vectorLen) / time) * 10
@@ -86,7 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: NSTimeInterval) {
-        updatesCalled += 1;
         if (playerTwo.getIsAi()){
             let action = ai.newAction(playerTwo, playerPos: playerTwo.getMallet().position, puckPos: puck.position)
             playerTwo.getMallet().runAction(action)
@@ -106,14 +107,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
+        // points to player one
+        if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.topCol)){
+            playerOneScore.text = String(playerOne.addScore(puck.getPoints()))
+            puckIsOffScreen()
+        }
+        // Points to player two
+        if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.botCol)){
+            playerTwoScore.text = String(playerTwo.addScore(puck.getPoints()))
+            puckIsOffScreen()
+        }
         
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
-            //if (updatesCalled == 0) {return}
-            //updatesCalled = 0
             if ((playerTwo.getIsAi()) && secondBody.isEqual(playerTwo.getMallet().physicsBody)){
         
-            }
-            else{
+            } else{
                 let impulse = SKAction.applyImpulse(direction, duration: 0.001)
                 let waitToKnock = SKAction.waitForDuration(0.1)
                 puck.runAction(SKAction.sequence([impulse, waitToKnock]))
@@ -121,58 +129,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 secondBody.velocity = CGVectorMake(0, 0)
             }
         }
-       /* if (((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.botCol)) && (self.intersectsNode(puck))){
-            puckIsOffScreen(puck)
-            playerOne.addScore(1)
-            print(playerOne.getScore())
-        }
-        if (((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.topCol)) && (self.intersectsNode(puck))){
-            puckIsOffScreen(puck)
-            playerTwo.addScore(1)
-            print(playerTwo.getScore())
-        }*/
     }
-
     
-    func didEndContact(contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
-        
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask{
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else{
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
-        }
-        if (((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.botCol))){
-                puckIsOffScreen(puck)
-                playerOne.addScore(1)
-                print(playerOne.getScore())
-        }
-        if (((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.topCol))){
-                puckIsOffScreen(puck)
-                playerTwo.addScore(1)
-                print(playerTwo.getScore())
-        }
-    }
-
-    
-       
-            
-    
-    func puckIsOffScreen(node:SKSpriteNode){
-        let waitToRespawn = SKAction.waitForDuration(1.5)
+    func puckIsOffScreen() {
+        let waitToRespawn = SKAction.waitForDuration(1)
         let remove = SKAction.hide()
         let show = SKAction.unhide()
         let moveBackx = SKAction.moveToX(self.frame.size.width/2, duration: 0)
         let moveBacky = SKAction.moveToY(self.frame.size.height/2, duration: 0)
-        if (((self.frame.contains((CGPointMake(puck.frame.midX, puck.frame.minY)))) && (self.frame.contains((CGPointMake(puck.frame.minX, puck.frame.maxY)))))) {
-            puck.runAction(SKAction.sequence([waitToRespawn, remove]))
-            puck.runAction(SKAction.sequence([waitToRespawn,moveBackx,moveBacky,show]))
-            puck.physicsBody?.velocity = CGVectorMake(0, 0)
-        }
-        
+        puck.runAction(SKAction.sequence([remove, waitToRespawn,moveBackx,moveBacky,show]))
     }
     
 }
