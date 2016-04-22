@@ -64,9 +64,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //print(time)
         
         
-        let speed = (Double(vectorLen) / time) * 10
+        let speed = (Double(vectorLen) / time)
         let CGSpeed = CGFloat(speed)
-        direction = CGVectorMake(20000*(CGSpeed*xOffset / vectorLen), 20000*(CGSpeed*yOffset / vectorLen))
+        direction = CGVectorMake(250000*(CGSpeed*xOffset / vectorLen), 250000*(CGSpeed*yOffset / vectorLen))
         let directionPath = CGPathCreateMutable();
         CGPathMoveToPoint(directionPath, nil, oldPosition.x, oldPosition.y);
         CGPathAddLineToPoint(directionPath, nil, location.x, location.y);
@@ -115,8 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else{
                 let impulse = SKAction.applyImpulse(direction, duration: 0.001)
-                let waitToKnock = SKAction.waitForDuration(0.1)
-                puck.runAction(SKAction.sequence([impulse, waitToKnock]))
+                puck.runAction(impulse)
                 //puck.physicsBody?.applyImpulse(direction)
                 secondBody.velocity = CGVectorMake(0, 0)
             }
