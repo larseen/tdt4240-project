@@ -6,17 +6,23 @@
 //  Copyright © 2016 group-1. All rights reserved.
 //
 
+import Foundation
+
 protocol HighscoreList {
     // currentHighscores - liste av highscoreobjekter på max 10
-    var currentHighscores: [Highscore?]! {get set}
+    var currentHighscores: [Highscore]! {get set}
     var listName: String! {get}
-    var highscoreThreshold: Int64! {get set}
-    var listLength: Int! {get set}
+    var highscoreThreshold: Int64 {get set}
+    var listLength: Int64 {get set}
     
     func updateHighscores(highscore: Highscore)
-    func updateHighscoreThreshold()
+    func updateHighscoreThreshold() -> Int64
     func clearHighscoreList()
+    func getCurrentHighscores() -> [Highscore]
+    func getHighscoreThreshold() -> Int64
+    func getListName() -> String
     
-    // 
+    
+    //
     
 }

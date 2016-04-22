@@ -10,9 +10,10 @@ import UIKit
 
 class HighscoreListController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var highscores : [Highscore?]!
+    var highscores : [Highscore]!
     let cellIdentifier = "HighscoreCell"
     let highscoreList : HighscoreList = SinglePlayerHighscoreList()
+    var tableTitle = "HIGHSCORES"
     
     
     // MARK: Initialize TableView with highscore data
@@ -24,16 +25,21 @@ class HighscoreListController : UIViewController, UITableViewDataSource, UITable
         return highscores.count
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+        return tableTitle
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         let highscore = highscores[indexPath.row] // get highscore at given index
-        cell.textLabel?.text = highscore!.getName() + " " + String(highscore!.getScore())
+        cell.textLabel?.text = String(indexPath.row+1) + ". " + highscore.getName() + " " + String(highscore.getScore())
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        highscores = highscoreList.currentHighscores // get highscores in sorted order
+        print (highscoreList.currentHighscores.description)
+        highscores = highscoreList.getCurrentHighscores() // get highscores in sorted order
     }
     
 }
