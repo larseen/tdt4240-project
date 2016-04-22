@@ -65,6 +65,14 @@ class Player {
         return score
     }
     
+    func getHomeGoal() -> String {
+        return homeGoal
+    }
+    func getIsAi() -> Bool{
+        return isAI
+        
+    }
+    
     
     
 }

@@ -71,9 +71,13 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         CGPathAddLineToPoint(goalTop, nil, CGFloat(width/2-x), CGFloat(height)-w);
         CGPathCloseSubpath(goalTop);
         topGoal = SKShapeNode(path: goalTop)
+        topGoal.physicsBody = SKPhysicsBody(edgeChainFromPath: goalTop)
         topGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
         topGoal.position = CGPointMake(0, 0)
         topGoal.physicsBody?.restitution = 0
+        topGoal.physicsBody?.categoryBitMask = CollisionCategories.topCol
+        topGoal.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
+        topGoal.physicsBody?.collisionBitMask = CollisionCategories.malCol
         topGoal.zPosition = 0
     }
     
@@ -89,7 +93,11 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         bottomGoal = SKShapeNode(path: goalBottom)
         bottomGoal.strokeColor = SKColor(colorLiteralRed: 255, green: 0, blue: 0, alpha: 0)
         bottomGoal.position = CGPointMake(0, 0)
+        bottomGoal.physicsBody = SKPhysicsBody(edgeChainFromPath: goalBottom)
         bottomGoal.physicsBody?.restitution = 0
+        bottomGoal.physicsBody?.categoryBitMask = CollisionCategories.botCol
+        bottomGoal.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
+        bottomGoal.physicsBody?.collisionBitMask = CollisionCategories.malCol
         bottomGoal.zPosition = 0
     }
     
@@ -101,8 +109,12 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         board.position = CGPointMake(frame.size.width/2, frame.size.height/2)
         board.size = frame.size
         board.zPosition = -1
+        board.physicsBody?.categoryBitMask = CollisionCategories.boardCol
+        board.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
+        
     }
     
+
     
 
 }

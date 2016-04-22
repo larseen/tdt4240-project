@@ -70,6 +70,7 @@ class Game {
         
     }
     
+    
     func getPlayers() -> Int {
         return numPlayers
     }

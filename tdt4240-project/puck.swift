@@ -21,6 +21,7 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
+        self.physicsBody?.collisionBitMask = CollisionCategories.malCol
     
     }
     
@@ -48,6 +49,10 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     func bounce(){
         self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
         print("lol")
+    }
+    
+    func setVelocity(){
+        self.physicsBody?.velocity = CGVectorMake(0, 0)
     }
 }
 
