@@ -12,15 +12,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playerTwo : Player!
     var direction : CGVector!
     var ai: AI!
+    var updatesCalled = 0;
+    var lastTouchedPuck : Player? // Who last touched the puck
+    var powerUpsHandler : PowerUpController?
     
     override func didMoveToView(view: SKView) {
-        
+        powerUpsHandler = PowerUpController(gameScene: self)
         let physics:physicsFactory = physicsFactory();
         physicsWorld.contactDelegate = self
         physics.setPhys(self)
         ai = AI()
-        
-        
         let game = Game.instance
         game.initGame(self.frame)
         
@@ -118,7 +119,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             puckIsOffScreen()
         }
         
+        // If puck touches powerup
+        if((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.powerupCol)) {
+            powerUpsHandler!.didGetCaught(lastTouchedPuck!)
+        }
+        
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.malCol)){
+            //Save who last touched the puck
+            lastTouchedPuck = secondBody.isEqual(playerTwo.getMallet().physicsBody) ? playerTwo : playerOne
+            
             if ((playerTwo.getIsAi()) && secondBody.isEqual(playerTwo.getMallet().physicsBody)){
         
             } else{
