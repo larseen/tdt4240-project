@@ -21,8 +21,9 @@ class Game {
     private var numPlayers = 1
     private var maxPlayers = 2
     private var minPlayers = 1
+    private var playerTwo : Player!
+    private var playerOne : Player!
     private var board = Board()
-    private var mallet = Mallet(color: "red")
     private var puck = Puck()
     
     
@@ -43,6 +44,15 @@ class Game {
     func initGame(frame : CGRect) {
         board.initialize(frame)
         puck.setPos(frame)
+        if (self.getPlayers() == 2){
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "top")
+            
+        } else {
+            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
+            playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "top")
+            
+        }
     }
     
     /*
@@ -75,6 +85,14 @@ class Game {
         return numPlayers
     }
     
+    func getPlayerOne() -> Player {
+        return playerOne
+    }
+    
+    func getPlayerTwo() -> Player {
+        return playerTwo
+    }
+    
     func getBoard() -> Board {
         return board
     }
@@ -82,11 +100,4 @@ class Game {
     func getPuck() -> Puck {
         return puck
     }
-    
-    func getMallet() -> Mallet {
-        return mallet
-    }
-
-    
-    
 }
