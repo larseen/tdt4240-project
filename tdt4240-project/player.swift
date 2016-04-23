@@ -19,6 +19,7 @@ class Player {
      *
      */
     private var mallet : Mallet
+    private var ai : AI!
     private var id : Int
     private var name : String
     private var isAI : Bool
@@ -43,6 +44,7 @@ class Player {
         self.homeGoal = homeGoal
         if (isAI){
             mallet.name = "aiMallet"
+            ai = AI()
         }
     }
     
@@ -68,9 +70,13 @@ class Player {
     func getHomeGoal() -> String {
         return homeGoal
     }
-    func getIsAi() -> Bool{
+    
+    func isAi() -> Bool{
         return isAI
-        
+    }
+    
+    func getAi() -> AI{
+        return ai
     }
     
     
