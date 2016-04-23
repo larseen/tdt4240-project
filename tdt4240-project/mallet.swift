@@ -15,6 +15,10 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
         self.name = "mallet";
         self.zPosition = 1
         self.setScale(CGFloat(0.35))
+        setPhysicsBody()
+    }
+    
+    func setPhysicsBody() {
         self.physicsBody?.restitution = 1
         self.physicsBody?.mass = 500
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)

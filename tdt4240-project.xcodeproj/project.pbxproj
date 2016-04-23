@@ -22,6 +22,9 @@
 		1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */; };
 		4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */; };
 		4F26B7801CBC00150039DD38 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26B77F1CBC00150039DD38 /* player.swift */; };
+		4FAD4E7D1CCA2FE000DC64F9 /* powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E7C1CCA2FE000DC64F9 /* powerup.swift */; };
+		4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */; };
+		4FAD4E811CCA98F900DC64F9 /* powerup.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
 		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
@@ -63,6 +66,9 @@
 		1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ai.swift; sourceTree = "<group>"; };
 		4F0DAA2B1CB87224009837DE /* highscorelist.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highscorelist.controller.swift; sourceTree = "<group>"; };
 		4F26B77F1CBC00150039DD38 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
+		4FAD4E7C1CCA2FE000DC64F9 /* powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerup.swift; sourceTree = "<group>"; };
+		4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
+		4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerup.controller.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
 		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		1C5CF8F91C8DB66F00738B5F /* tdt4240-project */ = {
 			isa = PBXGroup;
 			children = (
+				4FAD4E7B1CCA2FCA00DC64F9 /* powerup */,
 				C32FE4161CBBA84000D844D5 /* settings */,
 				4F0DAA2A1CB87207009837DE /* highscore */,
 				64BE38A61CB7F8DE001CE648 /* factories */,
@@ -164,6 +171,15 @@
 			name = highscore;
 			sourceTree = "<group>";
 		};
+		4FAD4E7B1CCA2FCA00DC64F9 /* powerup */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD4E7C1CCA2FE000DC64F9 /* powerup.swift */,
+				4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */,
+			);
+			name = powerup;
+			sourceTree = "<group>";
+		};
 		64BE38A61CB7F8DE001CE648 /* factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +210,7 @@
 				C4B6A8101CB7A92100A21015 /* singleplayerhighscore.swift */,
 				64BE38AD1CBA9627001CE648 /* constants.swift */,
 				1CDCCD4F1CBBA2D800FB3C66 /* ai.swift */,
+				4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -305,6 +322,7 @@
 				1C1DD8B71CB8187800F307B5 /* mallet.swift in Sources */,
 				64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */,
 				C4B6A80F1CB7A8EC00A21015 /* highscoreprotocol.swift in Sources */,
+				4FAD4E811CCA98F900DC64F9 /* powerup.controller.swift in Sources */,
 				C4B6A8111CB7A92100A21015 /* singleplayerhighscore.swift in Sources */,
 				4F26B7801CBC00150039DD38 /* player.swift in Sources */,
 				C4B6A80D1CB7A14100A21015 /* highscore.swift in Sources */,
@@ -312,9 +330,11 @@
 				C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */,
 				1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */,
 				4F0DAA2C1CB87224009837DE /* highscorelist.controller.swift in Sources */,
+				4FAD4E7D1CCA2FE000DC64F9 /* powerup.swift in Sources */,
 				64BE38AE1CBA9627001CE648 /* constants.swift in Sources */,
 				1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
+				4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */,
 				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
 				C45678F31CCA30A900D5AEBD /* highscorelistupdate.controller.swift in Sources */,
