@@ -12,10 +12,10 @@ import SpriteKit
 
 class SettingsController: UIViewController {
     
-    let music = getMusicInstance()
+    private let music = getMusicInstance()
     @IBOutlet weak var statusMusic: UISwitch!
     @IBOutlet weak var clearHighscoreButton: UIButton!
-    var clearHighscoresHasBeenTapped = false;
+    private var clearHighscoresHasBeenTapped = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,7 +16,7 @@ func getMusicPreference() -> Bool{
     return defaults.boolForKey("preferMusic")
 }
 
-let instance = music()
+private let instance = music()
 
 func getMusicInstance() ->music{
     return instance
