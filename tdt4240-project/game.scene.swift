@@ -19,7 +19,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMoveToView(view: SKView) {
-        powerUpsHandler = PowerUpController(gameScene: self)
         physicsWorld.contactDelegate = self
         self.view?.multipleTouchEnabled = true
         
@@ -38,6 +37,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         puck = game.getPuck()
         playerOne = game.getPlayerOne()
         playerTwo = game.getPlayerTwo()
+        
+        if(game.getGameMode() == GameMode.TimeBased) {
+            powerUpsHandler = PowerUpController(gameScene: self)
+        }
         
         self.addChild(board.board)
         self.addChild(puck)
@@ -117,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // If puck touches powerup
         if((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.powerupCol)) {
-            powerUpsHandler!.didGetCaught(puck.getLastTouched())
+            powerUpsHandler?.didGetCaught(puck.getLastTouched())
         }
         
         // mallet touches puck
