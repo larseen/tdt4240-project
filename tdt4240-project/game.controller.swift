@@ -20,6 +20,7 @@ class GameController: UIViewController {
         game = Game.instance
         print(game)
         let scene = GameScene(size: view.bounds.size)
+        scene.viewController = self
         let skView = self.view as! SKView
         skView.presentScene(scene)
     }

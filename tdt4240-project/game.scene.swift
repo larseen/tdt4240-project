@@ -2,7 +2,7 @@ import UIKit
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var viewController: GameController!
+    var viewController: UIViewController!
     
     var board : Board!
     var puck: Puck!
@@ -147,29 +147,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             exitButton.setTitle("Exit", forState: UIControlState.Normal)
             exitButton.titleLabel?.font = UIFont(name: "helvetica", size: 25)
             exitButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            
-            
             pauseButton.addTarget(self, action: #selector(GameScene.unpause(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             exitButton.addTarget(self, action: #selector(GameScene.exitPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            
             self.view!.addSubview(pauseButton)
             self.view!.addSubview(exitButton)
-            
         }
         
     }
     
     func exitPressed(sender:UIButton!){
-        
         puck.parent?.removeAllChildren()
-        
-        
         exitButton.removeFromSuperview()
         pauseButton.removeFromSuperview()
-        
-        
-        
-        
+        self.viewController.performSegueWithIdentifier("moveToMain", sender: viewController)
     }
     
     
@@ -177,7 +167,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.paused = false;
         exitButton.removeFromSuperview()
         pauseButton.removeFromSuperview()
-        
     }
     
     
