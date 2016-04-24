@@ -176,6 +176,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // End game here
         let winner = notification.userInfo!["winner"] as! Player // get winner like this
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 
 
