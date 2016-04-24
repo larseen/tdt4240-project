@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         powerUpsHandler = PowerUpController(gameScene: self)
         physicsWorld.contactDelegate = self
+        self.view?.multipleTouchEnabled = true
         
         
         Helpers.setPhys(self)

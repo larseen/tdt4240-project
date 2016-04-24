@@ -108,8 +108,7 @@ import Foundation;
     }
     
     func loadHighscoreList() -> [Highscore]? {
-        print (NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as! [Highscore], "highscores")
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as! [Highscore]
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as? [Highscore]
     }
     
 }

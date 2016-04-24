@@ -37,8 +37,8 @@
                                     <constraint firstAttribute="width" constant="474" id="S7f-W6-Hrq"/>
                                     <constraint firstAttribute="height" constant="400" id="o32-or-5AS"/>
                                 </constraints>
-                                <mutableString key="text">nim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">Puck-it is a digital version of the calssic table top game airhockey. The goal of the game is to be the first to reach 7 points. Points can be achived by using the mallet to push the puck in the opponents goal. By collecting powerups the player can gain an advantage over the other player. The user can choose between multiplayer mode or playing single player agianst an AI.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
