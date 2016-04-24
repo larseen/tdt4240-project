@@ -13,9 +13,9 @@ class ScoreBoard: SKLabelNode {
         super.init()
         let width = frame.size.width
         let height = frame.size.height
-        
+                
         //Set the position of the scoreboard
-        let pos = CGPointMake(-width/2, -height/2)
+        let pos = CGPointMake(0, 0)
         self.position = CGPoint(x: pos.x + 40, y: pos.y + 10)
         
         if(isTopBoard) {

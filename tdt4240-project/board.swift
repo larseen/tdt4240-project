@@ -15,8 +15,6 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     var rightWall : SKShapeNode!
     var topGoal : SKShapeNode!
     var bottomGoal: SKShapeNode!
-    var topScore : ScoreBoard!
-    var bottomScore: ScoreBoard!
     let x = CGFloat(60)
     let w = CGFloat(4)
     
@@ -99,17 +97,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         bottomGoal.zPosition = 0
     }
     
-    func updateTopText(text : String) {
-        topScore.updateText(text)
-    }
-    
-    func updateBottomText(text : String) {
-        bottomScore.updateText(text)
-    }
-    
     func initialize (frame: CGRect) {
-        topScore = ScoreBoard(frame: frame, isTopBoard: true)
-        bottomScore = ScoreBoard(frame: frame, isTopBoard: false)
         createLeftWall(frame.size.width, height: frame.size.height)
         createRightWall(frame.size.width, height: frame.size.height)
         createBottomGoal(frame.size.width, height: frame.size.height)
@@ -122,11 +110,5 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         board.addChild(rightWall)
         board.addChild(topGoal)
         board.addChild(bottomGoal)
-        board.addChild(bottomScore);
-        board.addChild(topScore);
     }
-    
-
-    
-
 }
