@@ -49,6 +49,7 @@ class Game {
         }
         playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom", frame: frame)
         playerTwo = Player(id: 2, name: "Player Two", isAI: isAi, color: "red", homeGoal: "top", frame: frame)
+        limitMovement()
         
     }
     
