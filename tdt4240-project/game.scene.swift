@@ -161,14 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func exitPressed(sender:UIButton!){
         
-        
-        
-        
         puck.parent?.removeAllChildren()
-        
-        viewController = UIStoryboard(name: "main", bundle:nil).instantiateViewControllerWithIdentifier("ViewController") as! GameController
-        puck.parent?.removeAllChildren()
-        viewController.performSegueWithIdentifier("backMain", sender:self)
         
         
         exitButton.removeFromSuperview()
