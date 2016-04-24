@@ -25,6 +25,7 @@
 		4FAD4E7D1CCA2FE000DC64F9 /* powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E7C1CCA2FE000DC64F9 /* powerup.swift */; };
 		4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */; };
 		4FAD4E811CCA98F900DC64F9 /* powerup.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */; };
+		4FAD4E831CCBD12500DC64F9 /* scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E821CCBD12500DC64F9 /* scoreboard.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
 		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
 		C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE4171CBBA8B100D844D5 /* settings.controller.swift */; };
@@ -68,6 +69,7 @@
 		4FAD4E7C1CCA2FE000DC64F9 /* powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerup.swift; sourceTree = "<group>"; };
 		4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerup.controller.swift; sourceTree = "<group>"; };
+		4FAD4E821CCBD12500DC64F9 /* scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scoreboard.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
 		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C32FE4171CBBA8B100D844D5 /* settings.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.controller.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1C12BD441CB7C3FA004E9643 /* board.swift */,
+				4FAD4E821CCBD12500DC64F9 /* scoreboard.swift */,
 				1C1DD8B21CB7E9C700F307B5 /* game.swift */,
 				64BE38A11CB7F7C9001CE648 /* puck.swift */,
 				4F26B77F1CBC00150039DD38 /* player.swift */,
@@ -331,6 +334,7 @@
 				64BE38AE1CBA9627001CE648 /* constants.swift in Sources */,
 				1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
+				4FAD4E831CCBD12500DC64F9 /* scoreboard.swift in Sources */,
 				4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
 				C45678F31CCA30A900D5AEBD /* highscorelistupdate.controller.swift in Sources */,

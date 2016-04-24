@@ -10,12 +10,14 @@ import SpriteKit
 
 // A class that controls the cycle of powerups in the game
 class PowerUpController {
-    var powerups : [PowerUp]
-    var timer = NSTimer()
-    var chosenPowerUp : PowerUp?
+    private var powerups : [PowerUp]
+    private var timer = NSTimer()
+    private var chosenPowerUp : PowerUp?
+    private var gameScene: GameScene
     
     init(gameScene: GameScene) {
-        powerups = [MegaMallet(gameScene: gameScene)] // insert powerups here
+        self.gameScene = gameScene
+        powerups = [MegaMallet()] // insert powerups here
         pickAndStartRandomPowerUp()
     }
     
@@ -34,7 +36,7 @@ class PowerUpController {
         
     // Timer method. Shows icon and sets new timer.
     @objc private func show() {
-        chosenPowerUp!.showIcon()
+        chosenPowerUp!.showIcon(self.gameScene)
         // when this timer times out, powerup is hidden
         timer.invalidate()
         timer = NSTimer.scheduledTimerWithTimeInterval(chosenPowerUp!.getVisibleDuration(), target: self, selector: #selector(hide), userInfo: nil, repeats: false)

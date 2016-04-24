@@ -26,7 +26,6 @@ class Game {
     private var board = Board()
     private var puck = Puck()
     
-    
     /*
      *
      * RESET / INIT FUNCTIONS
@@ -44,15 +43,12 @@ class Game {
     func initGame(frame : CGRect) {
         board.initialize(frame)
         puck.setPos(frame)
+        var isAi = true
         if (self.getPlayers() == 2){
-            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
-            playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "top")
-            
-        } else {
-            playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
-            playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "top")
-            
+            isAi = false
         }
+        playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom", frame: frame)
+        playerTwo = Player(id: 2, name: "Player Two", isAI: isAi, color: "red", homeGoal: "top", frame: frame)
     }
     
     /*
@@ -99,5 +95,9 @@ class Game {
 
     func getPuck() -> Puck {
         return puck
+    }
+    
+    func getScoreBoard(player: Player) -> ScoreBoard {
+        return player.getScoreBoard()
     }
 }
