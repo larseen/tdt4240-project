@@ -15,7 +15,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     var rightWall : SKShapeNode!
     var topGoal : SKShapeNode!
     var bottomGoal: SKShapeNode!
-    let x = CGFloat(60)
+    var x = CGFloat(0.18)
     let w = CGFloat(4)
     
     func createLeftWall(width : CGFloat, height : CGFloat) {
@@ -41,12 +41,12 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     }
     
     func createRightWall(width : CGFloat, height : CGFloat) {
+    
         let wallRight = CGPathCreateMutable();
         CGPathMoveToPoint(wallRight, nil, CGFloat(width/2+x), CGFloat(height));
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width), CGFloat(height));
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width), CGFloat(0));
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width / 2 + x), CGFloat(0));
-        
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width / 2 + x), w);
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width) - w, w);
         CGPathAddLineToPoint(wallRight, nil, CGFloat(width) - w, CGFloat(height) - w);
@@ -98,6 +98,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     }
     
     func initialize (frame: CGRect) {
+        x = x * frame.size.width
         createLeftWall(frame.size.width, height: frame.size.height)
         createRightWall(frame.size.width, height: frame.size.height)
         createBottomGoal(frame.size.width, height: frame.size.height)
