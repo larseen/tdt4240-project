@@ -9,7 +9,7 @@
 import SpriteKit
 
 class Puck: SKSpriteNode, SKPhysicsContactDelegate {
-    let points = 100
+    let points = 1
     var lastTouched : Player!
     var direction : CGVector!
     

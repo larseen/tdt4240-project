@@ -27,7 +27,7 @@ class ScoreBoard: SKLabelNode {
     }
     
     func updateText(text: String) {
-        self.text = text
+        self.text = String(count: 3 - text.characters.count, repeatedValue: Character("0")) + text
     }
     
     required init?(coder aDecoder: NSCoder) {
