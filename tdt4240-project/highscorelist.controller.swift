@@ -10,10 +10,10 @@ import UIKit
 
 class HighscoreListController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var highscores : [Highscore]!
-    let cellIdentifier = "HighscoreCell"
-    let highscoreList : HighscoreList = SinglePlayerHighscoreList()
-    var tableTitle = "HIGHSCORES"
+    private var highscores : [Highscore]!
+    private let cellIdentifier = "HighscoreCell"
+    private let highscoreList : HighscoreList = SinglePlayerHighscoreList()
+    private var tableTitle = "HIGHSCORES"
     
     
     // MARK: Initialize TableView with highscore data

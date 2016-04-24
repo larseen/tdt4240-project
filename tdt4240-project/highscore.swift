@@ -10,9 +10,9 @@ import UIKit
 class Highscore: NSObject, NSCoding {
     // MARK: Properties
     
-    let score: Int64!
-    let date: NSDate!
-    let name: String!
+    private let score: Int64!
+    private let date: NSDate!
+    private let name: String!
     
     // MARK: Archiving Paths
     

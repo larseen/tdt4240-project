@@ -9,9 +9,9 @@
 import SpriteKit
 
 class Puck: SKSpriteNode, SKPhysicsContactDelegate {
-    let points = 1
-    var lastTouched : Player!
-    var direction : CGVector!
+    private let points = 1
+    private var lastTouched : Player!
+    private var direction : CGVector!
     
     init() {
         let texture = SKTexture(imageNamed: "puck")

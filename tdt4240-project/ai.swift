@@ -11,8 +11,8 @@ import Foundation
 import SpriteKit
 
 class AI {
-    let speed = 200.0
-    var currentVelocity = CGVector(dx: 0, dy: 0)
+    private let speed = 200.0
+    private var currentVelocity = CGVector(dx: 0, dy: 0)
     
     func newAction(player: Player,playerPos:CGPoint, puckPos: CGPoint)->SKAction{
         if (puckPos.y > playerPos.y){

@@ -11,9 +11,9 @@ import UIKit
 
 class HighscoreListUpdateController : UIViewController, UITextFieldDelegate {
     
-    let highscores : HighscoreList! = SinglePlayerHighscoreList()
-    var threshold: Int64 = 0
-    let score = 500//game.getScorePlayerOne();
+    private let highscores : HighscoreList! = SinglePlayerHighscoreList()
+    private var threshold: Int64 = 0
+    private let score = 500//game.getScorePlayerOne();
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var submitButton: UIButton!

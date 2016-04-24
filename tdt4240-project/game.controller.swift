@@ -13,7 +13,7 @@ import SpriteKit
 class GameController: UIViewController {
     
     @IBOutlet weak var numPlayers: UILabel!
-    var game : Game! = nil
+    private var game : Game! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

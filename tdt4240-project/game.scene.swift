@@ -2,19 +2,19 @@ import UIKit
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var viewController: GameController!
+    private var viewController: GameController!
     
-    var board : Board!
-    var puck: Puck!
-    var playerOne : Player!
-    var playerTwo : Player!
+    private var board : Board!
+    private var puck: Puck!
+    private var playerOne : Player!
+    private var playerTwo : Player!
     
-    var pauseButton : UIButton! = nil
-    var exitButton : UIButton! = nil
-    var storyBoard : UIStoryboard! = nil
-    var game : Game! = nil
+    private var pauseButton : UIButton! = nil
+    private var exitButton : UIButton! = nil
+    private var storyBoard : UIStoryboard! = nil
+    private var game : Game! = nil
     
-    var powerUpsHandler : PowerUpController?
+    private var powerUpsHandler : PowerUpController?
     
     
     override func didMoveToView(view: SKView) {
@@ -23,11 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         Helpers.setPhys(self)
-        
-        
-        
-        
-        
+
         let game = Game.instance
         
         game.initGame(self.frame)
@@ -37,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerOne = game.getPlayerOne()
         playerTwo = game.getPlayerTwo()
         
-        self.addChild(board.board)
+        self.addChild(board.getBoard())
         self.addChild(puck)
         self.addChild(playerOne.getMallet())
         self.addChild(playerTwo.getMallet())

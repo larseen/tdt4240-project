@@ -10,13 +10,13 @@ import SpriteKit
 
 class Board : SKSpriteNode,SKPhysicsContactDelegate {
     
-    var board = SKSpriteNode(imageNamed: "Board")
-    var leftWall : SKShapeNode!
-    var rightWall : SKShapeNode!
-    var topGoal : SKShapeNode!
-    var bottomGoal: SKShapeNode!
-    let x = CGFloat(60)
-    let w = CGFloat(4)
+    private var board = SKSpriteNode(imageNamed: "Board")
+    private var leftWall : SKShapeNode!
+    private var rightWall : SKShapeNode!
+    private var topGoal : SKShapeNode!
+    private var bottomGoal: SKShapeNode!
+    private let x = CGFloat(60)
+    private let w = CGFloat(4)
     
     func createLeftWall(width : CGFloat, height : CGFloat) {
         let wallLeft = CGPathCreateMutable();
@@ -110,5 +110,9 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         board.addChild(rightWall)
         board.addChild(topGoal)
         board.addChild(bottomGoal)
+    }
+    
+    func getBoard() -> SKSpriteNode {
+        return self.board
     }
 }

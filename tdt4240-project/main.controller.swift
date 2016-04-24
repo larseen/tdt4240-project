@@ -11,7 +11,7 @@ import SpriteKit
 
 
 class MainController: UIViewController {
-    let music = getMusicInstance()
+    private let music = getMusicInstance()
     
     @IBOutlet weak var numPlayers: UILabel!
     var newGame : Game! = nil

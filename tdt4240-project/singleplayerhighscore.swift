@@ -10,14 +10,13 @@
 import Foundation;
 
 @ objc class SinglePlayerHighscoreList: NSObject, HighscoreList {
-    var listName: String!
-    var currentHighscores: [Highscore]!
-    var highscoreThreshold: Int64
-    var listLength: Int64
-    var game1 = Highscore(score: 8000, name: "Me")
-    var game2 = Highscore(score: 4000, name: "Trine")
-    var game3 = Highscore(score: 6000, name: "")
-    
+    internal var listName: String!
+    internal var currentHighscores: [Highscore]!
+    internal var highscoreThreshold: Int64
+    internal var listLength: Int64
+    private var game1 = Highscore(score: 8000, name: "Me")
+    private var game2 = Highscore(score: 4000, name: "Trine")
+    private var game3 = Highscore(score: 6000, name: "")
     
     override init() {
         //FIX: laste opp fra local storage. Regne ut initial highscreThreshold.
@@ -46,7 +45,7 @@ import Foundation;
     func updateHighscores(newHighscore: Highscore) {
         
         currentHighscores.append(newHighscore)
-        currentHighscores = currentHighscores.sort({game1, game2 in return game1.score>game2.score})
+        currentHighscores = currentHighscores.sort({game1, game2 in return game1.getScore()>game2.getScore()})
         if (Int64(currentHighscores.count) > listLength) {
             currentHighscores.removeLast()}
         updateHighscoreThreshold() }
@@ -69,8 +68,8 @@ import Foundation;
             var lowestScore: Int64
             lowestScore = 99999999
             for highscore in currentHighscores {
-                if Int64(highscore.score) < Int64(lowestScore) {
-                    lowestScore = Int64(highscore.score)}
+                if Int64(highscore.getScore()) < Int64(lowestScore) {
+                    lowestScore = Int64(highscore.getScore())}
             }
             return lowestScore}
     }
