@@ -11,7 +11,6 @@
 		1C12BD471CB7C59D004E9643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD461CB7C59D004E9643 /* Assets.xcassets */; };
 		1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD511CB7D9A5004E9643 /* main.controller.swift */; };
 		1C12BD541CB7DC6B004E9643 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD531CB7DC6B004E9643 /* main.storyboard */; };
-		1C12BD561CB7DF03004E9643 /* 16 - Perturbator.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */; };
 		1C12BD5A1CB7E70C004E9643 /* game.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C12BD591CB7E70C004E9643 /* game.controller.swift */; };
 		1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1DD8B21CB7E9C700F307B5 /* game.swift */; };
 		1C1DD8B51CB7F1E400F307B5 /* game.scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1DD8B41CB7F1E400F307B5 /* game.scene.swift */; };
@@ -51,7 +50,6 @@
 		1C12BD461CB7C59D004E9643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C12BD511CB7D9A5004E9643 /* main.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.controller.swift; sourceTree = "<group>"; };
 		1C12BD531CB7DC6B004E9643 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
-		1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "16 - Perturbator.mp3"; sourceTree = "<group>"; };
 		1C12BD591CB7E70C004E9643 /* game.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.controller.swift; sourceTree = "<group>"; };
 		1C1DD8B21CB7E9C700F307B5 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
 		1C1DD8B41CB7F1E400F307B5 /* game.scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.scene.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				1C12BD461CB7C59D004E9643 /* Assets.xcassets */,
 				1C5CF9071C8DB66F00738B5F /* LaunchScreen.storyboard */,
 				1C5CF90A1C8DB66F00738B5F /* Info.plist */,
-				1C12BD551CB7DF03004E9643 /* 16 - Perturbator.mp3 */,
 				1C12BD531CB7DC6B004E9643 /* main.storyboard */,
 			);
 			path = "tdt4240-project";
@@ -298,7 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C12BD561CB7DF03004E9643 /* 16 - Perturbator.mp3 in Resources */,
 				1C5CF9091C8DB66F00738B5F /* LaunchScreen.storyboard in Resources */,
 				1C12BD541CB7DC6B004E9643 /* main.storyboard in Resources */,
 				1C12BD471CB7C59D004E9643 /* Assets.xcassets in Resources */,
