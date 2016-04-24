@@ -38,7 +38,6 @@ class HighscoreListController : UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (highscoreList.currentHighscores.description)
         highscores = highscoreList.getCurrentHighscores() // get highscores in sorted order
     }
     

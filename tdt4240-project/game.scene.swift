@@ -19,7 +19,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMoveToView(view: SKView) {
-        powerUpsHandler = PowerUpController(gameScene: self)
         physicsWorld.contactDelegate = self
         self.view?.multipleTouchEnabled = true
         
@@ -39,6 +38,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerOne = game.getPlayerOne()
         playerTwo = game.getPlayerTwo()
         
+        if(game.getGameMode() == GameMode.TimeBased) {
+            powerUpsHandler = PowerUpController(gameScene: self)
+        }
+        
         self.addChild(board.board)
         self.addChild(puck)
         self.addChild(playerOne.getMallet())
@@ -51,6 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Listen for game over-notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(gameOver), name: GAME_OVER, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(timeOutGameOver), name: TIME_OUT, object: nil)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
@@ -116,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // If puck touches powerup
         if((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.powerupCol)) {
-            powerUpsHandler!.didGetCaught(puck.getLastTouched())
+            powerUpsHandler?.didGetCaught(puck.getLastTouched())
         }
         
         // mallet touches puck
@@ -177,7 +181,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Called when game is over
     @objc func gameOver(notification: NSNotification) {
         // End game here
-        let _winner = notification.userInfo!["winner"] as! Player
+        if(game.getGameMode() == GameMode.GoalBased) {
+            let _winner = notification.userInfo!["winner"] as! Player
+            game.setWinner(_winner)
+            self.viewController.performSegueWithIdentifier("moveToHighscore", sender: viewController)
+        }
+    }
+    
+    @objc func timeOutGameOver(notification: NSNotification) {
+        // End time based game here
+        let _winner = playerOne.getScore() > playerTwo.getScore() ? playerOne : playerTwo
         game.setWinner(_winner)
         self.viewController.performSegueWithIdentifier("moveToHighscore", sender: viewController)
     }

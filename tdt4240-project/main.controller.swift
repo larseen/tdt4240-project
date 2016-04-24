@@ -15,12 +15,19 @@ class MainController: UIViewController {
     
     @IBOutlet weak var numPlayers: UILabel!
     var newGame : Game! = nil
+    @IBOutlet weak var gameMode: UILabel!
+    
+    
+    @IBAction func changeGameMode(sender: UIButton) {
+        gameMode.text = newGame.changeGameMode()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newGame = Game.instance
         newGame.reset()
         numPlayers.text = String(newGame.getPlayers())
+        gameMode.text = String(newGame.getGameModeString())
     }
    
     @IBAction func addPlayer(sender: AnyObject) {

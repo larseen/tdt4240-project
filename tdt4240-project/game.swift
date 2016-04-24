@@ -22,10 +22,13 @@ class Game {
     private var maxPlayers = 2
     private var minPlayers = 1
     private var winner : Player!
+    private var gameMode = GameMode.GoalBased
     private var playerTwo : Player!
     private var playerOne : Player!
     private var board = Board()
     private var puck = Puck()
+    var timer: NSTimer?
+
     
     /*
      *
@@ -52,6 +55,9 @@ class Game {
         playerTwo = Player(id: 2, name: "Player Two", isAI: isAi, color: "red", homeGoal: "top", frame: frame)
         limitMovement()
         
+        if(gameMode == GameMode.TimeBased) {
+            timer = NSTimer.scheduledTimerWithTimeInterval(GAME_TIME, target: self, selector: #selector(Game.timedOut), userInfo: nil, repeats: false)
+        }
     }
     
     
@@ -80,6 +86,33 @@ class Game {
         
     }
     
+    func changeGameMode() -> String {
+        if(gameMode == .TimeBased) {
+            gameMode = .GoalBased
+        }
+        else {
+            gameMode = .TimeBased
+        }
+        
+        return gameModeToString(gameMode)
+    }
+    
+    private func gameModeToString(gm: GameMode) -> String {
+        switch gm {
+        case .GoalBased:
+            return "Goal Based"
+        case .TimeBased:
+            return "Time Based"
+        }
+    }
+    
+    func getGameMode() -> GameMode {
+        return gameMode
+    }
+    
+    func getGameModeString() -> String {
+        return gameModeToString(gameMode)
+    }
     
     func getPlayers() -> Int {
         return numPlayers
@@ -108,7 +141,6 @@ class Game {
     func getPuck() -> Puck {
         return puck
     }
-    
 
     func limitMovement(){
         playerOne.getMallet().constraints = [SKConstraint.positionY(SKRange(lowerLimit: 0, upperLimit: self.getBoard().board.frame.height/2))]
@@ -117,9 +149,13 @@ class Game {
         playerTwo.getMallet().position = CGPoint(x: self.getBoard().board.frame.width/2, y: self.getBoard().board.frame.height*3/4)
         
     }
-   
 
     func getScoreBoard(player: Player) -> ScoreBoard {
         return player.getScoreBoard()
     }
+    
+    @objc func timedOut() {
+        NSNotificationCenter.defaultCenter().postNotificationName(TIME_OUT, object: self, userInfo: nil)
+    }
 }
+
