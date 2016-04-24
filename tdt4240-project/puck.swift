@@ -19,9 +19,10 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
         self.setScale(0.4)
         self.zPosition = 1
         self.name = "puck"
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2.1)
         self.physicsBody?.restitution = 1
-        self.physicsBody?.mass = 0.02
+        self.physicsBody?.density = 0.1
+        //self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.categoryBitMask = CollisionCategories.puckCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.malCol
         self.physicsBody?.collisionBitMask = CollisionCategories.malCol
@@ -37,18 +38,15 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     }
     
 
-    func bounce(){
-        self.physicsBody?.applyImpulse(CGVectorMake(10, 0))
-        print("lol")
-    }
     
     func reset() {
         let waitToRespawn = SKAction.waitForDuration(1)
         let remove = SKAction.hide()
         let show = SKAction.unhide()
-        let moveBackx = SKAction.moveToX(frame.size.width/2, duration: 0)
-        let moveBacky = SKAction.moveToY(frame.size.height/2, duration: 0)
+        let moveBackx = SKAction.moveToX(parent!.frame.size.width/2, duration: 0)
+        let moveBacky = SKAction.moveToY(parent!.frame.size.height/2, duration: 0)
         self.runAction(SKAction.sequence([remove, waitToRespawn,moveBackx,moveBacky,show]))
+        self.physicsBody?.velocity = CGVectorMake(0,0)
     }
     
     func touched(player : Player) {
@@ -72,12 +70,15 @@ class Puck: SKSpriteNode, SKPhysicsContactDelegate {
     }
     
     func hit() {
-        let impulse = SKAction.applyImpulse(direction, duration: 0.001)
-        self.runAction(impulse)
+        /*let impulse = SKAction.applyImpulse(direction, duration: 0.001)
+        self.runAction(impulse)*/
+        self.physicsBody?.applyImpulse(direction)
     }
     
     func setVelocity(){
         self.physicsBody?.velocity = CGVectorMake(0, 0)
     }
+    
+    
 }
 

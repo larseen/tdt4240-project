@@ -47,11 +47,12 @@ class Game {
         if (self.getPlayers() == 2){
             playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
             playerTwo = Player(id: 2, name: "Player Two", isAI: false, color: "red", homeGoal: "top")
+            limitMovement()
             
         } else {
             playerOne = Player(id: 1, name: "Player One", isAI: false, color: "blue", homeGoal: "bottom")
             playerTwo = Player(id: 2, name: "Player Two", isAI: true, color: "red", homeGoal: "top")
-            
+            limitMovement()
         }
     }
     
@@ -100,4 +101,13 @@ class Game {
     func getPuck() -> Puck {
         return puck
     }
+    
+    func limitMovement(){
+        playerOne.getMallet().constraints = [SKConstraint.positionY(SKRange(lowerLimit: 0, upperLimit: self.getBoard().board.frame.height/2))]
+        playerOne.getMallet().position = CGPoint(x: self.getBoard().board.frame.width/2, y: self.getBoard().board.frame.height/4)
+        playerTwo.getMallet().constraints = [SKConstraint.positionY(SKRange(lowerLimit: self.getBoard().board.frame.height/2, upperLimit: self.getBoard().board.frame.height))]
+        playerTwo.getMallet().position = CGPoint(x: self.getBoard().board.frame.width/2, y: self.getBoard().board.frame.height*3/4)
+        
+    }
+   
 }
