@@ -24,7 +24,6 @@ class HighscoreListUpdateController : UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.threshold = highscores.getHighscoreThreshold()
         score = Game.instance.getWinner().getScore();
-        print(score)
         nameInput.delegate = self
         checkVisible()
     }

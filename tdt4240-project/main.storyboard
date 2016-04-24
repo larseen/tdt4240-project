@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dxM-QB-tnx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dxM-QB-tnx">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -252,10 +252,43 @@
                                     <action selector="removePlayer:" destination="dxM-QB-tnx" eventType="touchUpInside" id="RVw-bQ-YxA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOs-Ys-Sjd">
+                                <rect key="frame" x="291" y="285" width="19" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-YM-p0N">
+                                <rect key="frame" x="343" y="276" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" red="1" green="0.13942762780000001" blue="0.091852849099999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeGameMode:" destination="dxM-QB-tnx" eventType="touchUpInside" id="wlm-QQ-GvP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y88-EF-bcF">
+                                <rect key="frame" x="214" y="276" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="1" green="0.13942762780000001" blue="0.091852849099999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeGameMode:" destination="dxM-QB-tnx" eventType="touchUpInside" id="otM-9H-ZYc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Game mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVm-Bj-4DC">
+                                <rect key="frame" x="221" y="243" width="152" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sTf-08-35S" firstAttribute="top" secondItem="Q4y-8O-QMW" secondAttribute="bottom" constant="20" id="1ZE-d2-evt"/>
+                            <constraint firstItem="QOs-Ys-Sjd" firstAttribute="top" secondItem="UVm-Bj-4DC" secondAttribute="bottom" constant="20" id="2Tm-Ce-6s7"/>
                             <constraint firstItem="k3C-1E-DGz" firstAttribute="top" secondItem="nKo-t4-Coq" secondAttribute="bottom" constant="20" id="3sT-dN-T5d"/>
                             <constraint firstItem="a1i-q8-SlA" firstAttribute="top" secondItem="duk-YQ-bCY" secondAttribute="top" id="8BF-2A-pLd"/>
                             <constraint firstItem="Ssf-wV-FTu" firstAttribute="leading" secondItem="fVG-D4-1wL" secondAttribute="trailing" constant="60" id="8Dm-16-MF3"/>
@@ -268,6 +301,7 @@
                             <constraint firstItem="Q4y-8O-QMW" firstAttribute="leading" secondItem="duk-YQ-bCY" secondAttribute="leadingMargin" constant="20" id="Ja3-mp-xho"/>
                             <constraint firstAttribute="trailing" secondItem="a1i-q8-SlA" secondAttribute="trailing" id="Jpz-am-KcI"/>
                             <constraint firstItem="a1i-q8-SlA" firstAttribute="top" secondItem="duk-YQ-bCY" secondAttribute="top" id="Khs-Qi-nRz"/>
+                            <constraint firstItem="9PV-YM-p0N" firstAttribute="leading" secondItem="QOs-Ys-Sjd" secondAttribute="trailing" constant="60" id="SuP-aB-0jI"/>
                             <constraint firstItem="nKo-t4-Coq" firstAttribute="top" secondItem="fVG-D4-1wL" secondAttribute="bottom" constant="40" id="TVM-yI-XoX"/>
                             <constraint firstItem="a1i-q8-SlA" firstAttribute="leading" secondItem="duk-YQ-bCY" secondAttribute="leading" id="V6J-rc-Hd9"/>
                             <constraint firstItem="nKo-t4-Coq" firstAttribute="centerX" secondItem="duk-YQ-bCY" secondAttribute="centerX" id="VfQ-hz-xfe"/>
@@ -275,11 +309,13 @@
                             <constraint firstItem="rCk-K4-pYk" firstAttribute="centerX" secondItem="duk-YQ-bCY" secondAttribute="centerX" id="cIC-DB-49C"/>
                             <constraint firstItem="Ssf-wV-FTu" firstAttribute="top" secondItem="rCk-K4-pYk" secondAttribute="bottom" constant="20" id="fdr-dy-yPc"/>
                             <constraint firstItem="sTf-08-35S" firstAttribute="top" secondItem="k3C-1E-DGz" secondAttribute="bottom" constant="300" id="iDy-eD-tBS"/>
+                            <constraint firstItem="QOs-Ys-Sjd" firstAttribute="leading" secondItem="Y88-EF-bcF" secondAttribute="trailing" constant="60" id="iaF-d7-ecf"/>
                             <constraint firstItem="oqJ-fm-14W" firstAttribute="leading" secondItem="Ssf-wV-FTu" secondAttribute="trailing" constant="60" id="or3-tQ-TiW"/>
                             <constraint firstItem="Ssf-wV-FTu" firstAttribute="centerX" secondItem="duk-YQ-bCY" secondAttribute="centerX" id="vQo-FM-W0J"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameMode" destination="QOs-Ys-Sjd" id="i76-r8-4sO"/>
                         <outlet property="numPlayers" destination="Ssf-wV-FTu" id="80E-dM-U5i"/>
                     </connections>
                 </viewController>
@@ -550,6 +586,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kra-BC-T8g"/>
-        <segue reference="Bka-CX-f9U"/>
+        <segue reference="3yI-oK-PoO"/>
     </inferredMetricsTieBreakers>
 </document>

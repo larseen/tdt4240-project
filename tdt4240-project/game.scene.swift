@@ -51,6 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Listen for game over-notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(gameOver), name: GAME_OVER, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(timeOutGameOver), name: TIME_OUT, object: nil)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
@@ -177,7 +178,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Called when game is over
     @objc func gameOver(notification: NSNotification) {
         // End game here
-        let _winner = notification.userInfo!["winner"] as! Player
+        if(game.getGameMode() == GameMode.GoalBased) {
+            let _winner = notification.userInfo!["winner"] as! Player
+            game.setWinner(_winner)
+            self.viewController.performSegueWithIdentifier("moveToHighscore", sender: viewController)
+        }
+    }
+    
+    @objc func timeOutGameOver(notification: NSNotification) {
+        // End time based game here
+        let _winner = playerOne.getScore() > playerTwo.getScore() ? playerOne : playerTwo
         game.setWinner(_winner)
         self.viewController.performSegueWithIdentifier("moveToHighscore", sender: viewController)
     }

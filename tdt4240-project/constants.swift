@@ -10,3 +10,9 @@ struct CollisionCategories{
 
 let GOALS_WHEN_GAME_OVER: Int = 7
 let GAME_OVER: String = "GAME_OVER" // Selector name for both player's score observer
+let TIME_OUT: String = "TIME_OUT"
+let GAME_TIME: Double = 90 // seconds
+enum GameMode {
+    case TimeBased
+    case GoalBased
+}

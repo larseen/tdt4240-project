@@ -27,9 +27,7 @@ import Foundation;
         //if list in storage==0, set empty 10-item list
         highscoreThreshold = 0
         super.init()
-        print(self)
         if let savedList = loadHighscoreList() {
-            print ("saved")
             currentHighscores = savedList
         }
         else {
@@ -79,7 +77,6 @@ import Foundation;
     func getCurrentHighscores() -> [Highscore] { //return list only containing !nil-objects
         //let peesAsArrayP: [P] = pees.map{$0 as P}
         let asArray: [Highscore] = currentHighscores.map{$0 as Highscore}
-        print ("attempt", asArray,asArray.dynamicType )
         return asArray //currentHighscores//.filter{$0 != nil}
     }
     
