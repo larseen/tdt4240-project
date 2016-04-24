@@ -47,6 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(GameScene.pause(_:)))
         doubleTap.numberOfTapsRequired = 2
         self.view?.addGestureRecognizer(doubleTap)
+        
+        // Listen for game over-notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(gameOver), name: GAME_OVER, object: nil)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
@@ -179,7 +182,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    
+    // Called when game is over
+    @objc func gameOver(notification: NSNotification) {
+        // End game here
+        let winner = notification.userInfo!["winner"] as! Player // get winner like this
+    }
 }
 
 

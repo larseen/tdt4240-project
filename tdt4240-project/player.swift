@@ -32,6 +32,13 @@ class Player {
         willSet(newScore) {
             // Called when score is updated
             scoreBoard.updateText(String(newScore))
+            
+            if(newScore == GOALS_WHEN_GAME_OVER) {
+                // Notifies observers that game is over. Return this player as winner.
+                let ns: [NSObject : AnyObject] = ["winner": self]
+                // Notify that any score has changed
+                NSNotificationCenter.defaultCenter().postNotificationName(GAME_OVER, object: self, userInfo: ns)
+            }
         }
     }
     
