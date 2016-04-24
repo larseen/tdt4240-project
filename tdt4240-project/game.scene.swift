@@ -42,13 +42,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(puck)
         self.addChild(playerOne.getMallet())
         self.addChild(playerTwo.getMallet())
-        
-        
+        self.addChild(playerOne.getScoreBoard())
+        self.addChild(playerTwo.getScoreBoard())
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(GameScene.pause(_:)))
         doubleTap.numberOfTapsRequired = 2
         self.view?.addGestureRecognizer(doubleTap)
-        
-        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
@@ -103,12 +101,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // points to player one
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.topCol)){
-            board.updateBottomText(String(playerOne.addScore(puck.getPoints())))
+            playerOne.addScore(puck.getPoints())
             puck.reset()
         }
         // Points to player two
         if ((firstBody.categoryBitMask == CollisionCategories.puckCol) && (secondBody.categoryBitMask == CollisionCategories.botCol)){
-            board.updateTopText(String(playerTwo.addScore(puck.getPoints())))
+            playerTwo.addScore(puck.getPoints())
             puck.reset()
         }
         

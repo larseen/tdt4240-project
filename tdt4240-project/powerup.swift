@@ -12,19 +12,15 @@ import SpriteKit
 class PowerUp {
     private let visibleDuration : NSTimeInterval = 20 // how long powerup icon to be caught is visible
     private let powerupActionDuration : NSTimeInterval = 20 // how long powerup is in action
-    private var gameScene : GameScene
     private var player : Player? // the player with the powerup. set when player catches it
     private var iconNode : SKSpriteNode?
-
-    init(gameScene : GameScene) {
-        self.gameScene = gameScene
-    }
     
     // Place icon to be caught in random position in frame
-    func showIcon() {
+    func showIcon(gameScene: GameScene) {
         iconNode!.position = Helpers.getRandomPositionInFrame(gameScene.frame)
         iconNode!.physicsBody = SKPhysicsBody(circleOfRadius: iconNode!.size.width/2)
         iconNode!.setScale(0.4)
+        iconNode!.physicsBody?.dynamic = false
         iconNode!.physicsBody?.categoryBitMask = CollisionCategories.powerupCol
         iconNode!.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
         gameScene.addChild(iconNode!)
@@ -68,10 +64,10 @@ class MegaMallet : PowerUp {
 
     private let MALLET_SCALE : Double = 2 // How much bigger the mallet should become
 
-    override func showIcon() {
+    override func showIcon(gameScene: GameScene) {
         let iconTexture = SKTexture(imageNamed: "MegaMallet")
         iconNode = SKSpriteNode(texture: iconTexture, color: SKColor.clearColor(), size: iconTexture.size())
-        super.showIcon()
+        super.showIcon(gameScene)
     }
     
     /*
@@ -86,7 +82,7 @@ class MegaMallet : PowerUp {
     /*
      * Stop the powerup
      */
-    @objc override func stop() {
+    override func stop() {
         let malletSize = player!.getMallet().size
         player!.getMallet().size = CGSize(width: Double(malletSize.width) / MALLET_SCALE, height: Double(malletSize.height) / MALLET_SCALE)
         player!.getMallet().setPhysicsBody(); //set physics body according to new mallet size

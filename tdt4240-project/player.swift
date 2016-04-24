@@ -23,10 +23,17 @@ class Player {
     private var id : Int
     private var name : String
     private var isAI : Bool
-    private var score : Int
     private var color: String
     private var homeGoal: String
+    private var scoreBoard: ScoreBoard
     
+    // Score with observer
+    private var score : Int = 0 {
+        willSet(newScore) {
+            // Called when score is updated
+            scoreBoard.updateText(String(newScore))
+        }
+    }
     
     /*
      *
@@ -34,11 +41,10 @@ class Player {
      *
      */
     
-    init(id : Int, name : String, isAI : Bool, color: String, homeGoal: String) {
+    init(id : Int, name : String, isAI : Bool, color: String, homeGoal: String, frame: CGRect) {
         self.id = id
         self.mallet = Mallet(color: color)
         self.name = name
-        self.score = 0
         self.isAI = isAI || false
         self.color = color
         self.homeGoal = homeGoal
@@ -46,6 +52,8 @@ class Player {
             mallet.name = "aiMallet"
             ai = AI()
         }
+        let isTopPlayer = homeGoal == "top" ? true : false
+        self.scoreBoard = ScoreBoard(frame: frame, isTopBoard: isTopPlayer)
     }
     
     
@@ -79,7 +87,9 @@ class Player {
         return ai
     }
     
-    
-    
-    
+
+    func getScoreBoard() -> ScoreBoard {
+        return scoreBoard
+    }
+
 }

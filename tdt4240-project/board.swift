@@ -15,8 +15,6 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
     var rightWall : SKShapeNode!
     var topGoal : SKShapeNode!
     var bottomGoal: SKShapeNode!
-    var topScore : SKLabelNode!
-    var bottomScore: SKLabelNode!
     let x = CGFloat(60)
     let w = CGFloat(4)
     
@@ -99,34 +97,7 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         bottomGoal.zPosition = 0
     }
     
-    func createBottomScore(width : CGFloat, height : CGFloat){
-        bottomScore = SKLabelNode()
-        let pos = CGPointMake(-width/2, -height/2)
-        bottomScore.position = CGPoint(x: pos.x + 40, y: pos.y + 10)
-        bottomScore.color = SKColor(colorLiteralRed: 255, green: 255, blue: 255, alpha: 1)
-        bottomScore.text = "000"
-    }
-    
-    func createTopScore(width : CGFloat, height : CGFloat){
-        topScore = SKLabelNode()
-        let pos = CGPointMake(-width/2, -height/2)
-        topScore.zRotation = CGFloat(M_PI)
-        topScore.position = CGPoint(x: pos.x + width - 40, y: pos.y + height - 10)
-        topScore.color = SKColor(colorLiteralRed: 255, green: 255, blue: 255, alpha: 1)
-        topScore.text = "000"
-    }
-    
-    func updateTopText(text : String) {
-        topScore.text = text
-    }
-    
-    func updateBottomText(text : String) {
-        bottomScore.text = text
-    }
-    
     func initialize (frame: CGRect) {
-        createBottomScore(frame.size.width, height: frame.size.height)
-        createTopScore(frame.size.width, height: frame.size.height)
         createLeftWall(frame.size.width, height: frame.size.height)
         createRightWall(frame.size.width, height: frame.size.height)
         createBottomGoal(frame.size.width, height: frame.size.height)
@@ -139,11 +110,5 @@ class Board : SKSpriteNode,SKPhysicsContactDelegate {
         board.addChild(rightWall)
         board.addChild(topGoal)
         board.addChild(bottomGoal)
-        board.addChild(bottomScore);
-        board.addChild(topScore);
     }
-    
-
-    
-
 }
