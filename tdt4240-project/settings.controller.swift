@@ -35,8 +35,7 @@ class SettingsController: UIViewController {
             clearHighscoreButton.setTitleColor(UIColor.grayColor(), forState: UIControlState())
             clearHighscoreButton.enabled = false
 
-        }
-        else {
+        } else {
             clearHighscoresHasBeenTapped = true;
             clearHighscoreButton.setTitle("You sure?", forState: UIControlState())
             clearHighscoreButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
