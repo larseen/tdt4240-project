@@ -20,4 +20,13 @@ class Helpers {
     class func getRandomIntBetween(from: Int, to: Int) -> Int {
         return from + Int(arc4random_uniform(UInt32(to - from)))
     }
+    
+    class func setPhys(scene : SKScene){
+        scene.physicsBody?.friction = 0.01
+        scene.physicsBody?.linearDamping = 0.3
+        scene.physicsBody?.restitution = 2.0
+        scene.physicsWorld.gravity = CGVectorMake(0,0)
+        
+        
+    }
 }

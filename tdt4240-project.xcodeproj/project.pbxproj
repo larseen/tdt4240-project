@@ -26,7 +26,6 @@
 		4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */; };
 		4FAD4E811CCA98F900DC64F9 /* powerup.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */; };
 		64BE38A21CB7F7C9001CE648 /* puck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A11CB7F7C9001CE648 /* puck.swift */; };
-		64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */; };
 		64BE38AE1CBA9627001CE648 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE38AD1CBA9627001CE648 /* constants.swift */; };
 		C32FE4181CBBA8B100D844D5 /* settings.controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE4171CBBA8B100D844D5 /* settings.controller.swift */; };
 		C32FE41C1CBBA91400D844D5 /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FE41B1CBBA91400D844D5 /* music.swift */; };
@@ -70,7 +69,6 @@
 		4FAD4E7E1CCA71C000DC64F9 /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		4FAD4E801CCA98F900DC64F9 /* powerup.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = powerup.controller.swift; sourceTree = "<group>"; };
 		64BE38A11CB7F7C9001CE648 /* puck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puck.swift; sourceTree = "<group>"; };
-		64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = physicsFactory.swift; sourceTree = "<group>"; };
 		64BE38AD1CBA9627001CE648 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C32FE4171CBBA8B100D844D5 /* settings.controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settings.controller.swift; sourceTree = "<group>"; };
 		C32FE41B1CBBA91400D844D5 /* music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		64BE38A61CB7F8DE001CE648 /* factories */ = {
 			isa = PBXGroup;
 			children = (
-				64BE38A71CB7F8F3001CE648 /* physicsFactory.swift */,
 			);
 			name = factories;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				1CDCCD501CBBA2D800FB3C66 /* ai.swift in Sources */,
 				1C12BD521CB7D9A5004E9643 /* main.controller.swift in Sources */,
 				4FAD4E7F1CCA71C000DC64F9 /* helpers.swift in Sources */,
-				64BE38A81CB7F8F3001CE648 /* physicsFactory.swift in Sources */,
 				C32FE41C1CBBA91400D844D5 /* music.swift in Sources */,
 				C45678F31CCA30A900D5AEBD /* highscorelistupdate.controller.swift in Sources */,
 				1C1DD8B31CB7E9C700F307B5 /* game.swift in Sources */,
