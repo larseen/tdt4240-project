@@ -153,6 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             exitButton.addTarget(self, action: #selector(GameScene.exitPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             self.view!.addSubview(pauseButton)
             self.view!.addSubview(exitButton)
+            self.powerUpsHandler?.pause()
         }
         
     }
@@ -169,6 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.paused = false;
         exitButton.removeFromSuperview()
         pauseButton.removeFromSuperview()
+        self.powerUpsHandler?.resume()
     }
     
     // Called when game is over

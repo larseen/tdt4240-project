@@ -15,6 +15,10 @@ class PowerUpController {
     private var chosenPowerUp : PowerUp?
     private var gameScene: GameScene
     
+    private var timeLeft: NSTimeInterval?
+    private var currentTimerSelector: String?
+    private var selectors: [String: Selector] = ["showPowerUp": #selector(PowerUpController.show), "hide": #selector(hide), "stop": #selector(stopPowerup)]
+    
     init(gameScene: GameScene) {
         self.gameScene = gameScene
         powerups = [MegaMallet()] // insert powerups here
@@ -31,7 +35,8 @@ class PowerUpController {
     // Starts timer. When it times out, powerup is shown.
     private func startShowingCountdown() {
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(Helpers.getRandomIntBetween(10, to: 30)), target: self, selector: #selector(PowerUpController.show), userInfo: nil, repeats: false)
+        currentTimerSelector = "showPowerUp"
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(Helpers.getRandomIntBetween(10, to: 20)), target: self, selector: selectors[currentTimerSelector!]!, userInfo: nil, repeats: false)
     }
         
     // Timer method. Shows icon and sets new timer.
@@ -39,7 +44,8 @@ class PowerUpController {
         chosenPowerUp!.showIcon(self.gameScene)
         // when this timer times out, powerup is hidden
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(chosenPowerUp!.getVisibleDuration(), target: self, selector: #selector(hide), userInfo: nil, repeats: false)
+        currentTimerSelector = "hide"
+        timer = NSTimer.scheduledTimerWithTimeInterval(chosenPowerUp!.getVisibleDuration(), target: self, selector: selectors[currentTimerSelector!]!, userInfo: nil, repeats: false)
     }
     
     // Timer method. Hides the powerup icon.
@@ -52,12 +58,22 @@ class PowerUpController {
     func didGetCaught(player: Player) {
         chosenPowerUp!.didGetCaught(player)
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(chosenPowerUp!.getPowerupActionDuration(), target: self, selector: #selector(stopPowerup), userInfo: nil, repeats: false)
+        currentTimerSelector = "stop"
+        timer = NSTimer.scheduledTimerWithTimeInterval(chosenPowerUp!.getPowerupActionDuration(), target: self, selector: selectors[currentTimerSelector!]!, userInfo: nil, repeats: false)
     }
     
     @objc private func stopPowerup() {
         chosenPowerUp!.stop()
         pickAndStartRandomPowerUp() // Pick new and start cycle over
+    }
+    
+    func pause() {
+        timeLeft = timer.fireDate.timeIntervalSinceNow
+        timer.invalidate()
+    }
+    
+    func resume() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(timeLeft!, target: self, selector: selectors[currentTimerSelector!]!, userInfo: nil, repeats: false)
     }
     
 }
