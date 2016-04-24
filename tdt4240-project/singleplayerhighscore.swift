@@ -12,11 +12,11 @@ import Foundation;
 @ objc class SinglePlayerHighscoreList: NSObject, HighscoreList {
     var listName: String!
     var currentHighscores: [Highscore]!
-    var highscoreThreshold: Int64
-    var listLength: Int64
-    var game1 = Highscore(score: 8000, name: "Me")
+    var highscoreThreshold: Int
+    var listLength: Int
+   /* var game1 = Highscore(score: 8000, name: "Me")
     var game2 = Highscore(score: 4000, name: "Trine")
-    var game3 = Highscore(score: 6000, name: "")
+    var game3 = Highscore(score: 7000, name: " ")*/
     
     
     override init() {
@@ -35,48 +35,48 @@ import Foundation;
         else {
             self.currentHighscores = [Highscore]()}
         // self.currentHighscores=[Highscore?](count: self.listLength, repeatedValue: nil)}*/
-        updateHighscores(game1)
+       /* updateHighscores(game1)
         updateHighscores(game2)
-        updateHighscores(game3)
+        updateHighscores(game3)*/
         self.highscoreThreshold = updateHighscoreThreshold();
         
         //self.highscoreThreshold = highscoreThreshold //Regnes utifra listen fra storage
     }
     
     func updateHighscores(newHighscore: Highscore) {
-        
+       
         currentHighscores.append(newHighscore)
         currentHighscores = currentHighscores.sort({game1, game2 in return game1.score>game2.score})
-        if (Int64(currentHighscores.count) > listLength) {
+        if (currentHighscores.count > listLength) {
             currentHighscores.removeLast()}
-        updateHighscoreThreshold() }
+        updateHighscoreThreshold()
+        saveHighscoreList()}
     
-    func changeListLength(newLength: Int64) {
+    func changeListLength(newLength: Int) {
         self.listLength=newLength
         //  var range = Range<Int>(start: 0, end: listLength)
-        while (Int64(currentHighscores.count) > listLength) {
+        while (currentHighscores.count > listLength) {
             currentHighscores.removeLast()
         }
         // saveHighscoreList()
         updateHighscoreThreshold()
     }
     
-    func updateHighscoreThreshold() -> Int64 {
-        if (Int64(currentHighscores.count) < listLength ){
+    func updateHighscoreThreshold() -> Int {
+        if (currentHighscores.count < listLength ){
             return 0
         }
         else {
-            var lowestScore: Int64
+            var lowestScore: Int
             lowestScore = 99999999
             for highscore in currentHighscores {
-                if Int64(highscore.score) < Int64(lowestScore) {
-                    lowestScore = Int64(highscore.score)}
+                if Int(highscore.score) < lowestScore {
+                    lowestScore = Int(highscore.score)}
             }
             return lowestScore}
     }
     
     func getCurrentHighscores() -> [Highscore] { //return list only containing !nil-objects
-        print(currentHighscores, "here")
         //let peesAsArrayP: [P] = pees.map{$0 as P}
         let asArray: [Highscore] = currentHighscores.map{$0 as Highscore}
         print ("attempt", asArray,asArray.dynamicType )
@@ -84,16 +84,17 @@ import Foundation;
     }
     
     func clearHighscoreList () {
-        currentHighscores=[]
+        currentHighscores.removeAll()
         //        saveHighscoreList()
         updateHighscoreThreshold()
+        saveHighscoreList()
     }
     
     func getListName() -> String {
         return listName
     }
     
-    func getHighscoreThreshold() -> Int64 {
+    func getHighscoreThreshold() -> Int {
         return highscoreThreshold
     }
     
@@ -107,8 +108,8 @@ import Foundation;
     }
     
     func loadHighscoreList() -> [Highscore]? {
-        print (NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as? [Highscore], "this")
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as? [Highscore]
+        print (NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as! [Highscore], "highscores")
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Highscore.ArchiveURL.path!) as! [Highscore]
     }
     
 }

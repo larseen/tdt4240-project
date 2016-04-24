@@ -21,6 +21,7 @@ class Game {
     private var numPlayers = 1
     private var maxPlayers = 2
     private var minPlayers = 1
+    private var winner : Player!
     private var playerTwo : Player!
     private var playerOne : Player!
     private var board = Board()
@@ -86,6 +87,14 @@ class Game {
     
     func getPlayerOne() -> Player {
         return playerOne
+    }
+    
+    func getWinner() -> Player {
+        return self.winner
+    }
+    
+    func setWinner(_winner : Player) {
+        self.winner = _winner;
     }
     
     func getPlayerTwo() -> Player {

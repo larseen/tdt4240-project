@@ -29,11 +29,11 @@ class Player {
     
     // Score with observer
     private var score : Int = 0 {
-        willSet(newScore) {
+        didSet(oldScore) {
             // Called when score is updated
-            scoreBoard.updateText(String(newScore))
+            scoreBoard.updateText(String(score))
             
-            if(newScore == GOALS_WHEN_GAME_OVER) {
+            if(score == GOALS_WHEN_GAME_OVER) {
                 // Notifies observers that game is over. Return this player as winner.
                 let ns: [NSObject : AnyObject] = ["winner": self]
                 // Notify that any score has changed

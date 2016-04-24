@@ -12,19 +12,28 @@ import UIKit
 class HighscoreListUpdateController : UIViewController, UITextFieldDelegate {
     
     let highscores : HighscoreList! = SinglePlayerHighscoreList()
-    var threshold: Int64 = 0
-    let score = 500//game.getScorePlayerOne();
+    var threshold: Int = 0
+    var score: Int = 0
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var noUpdateLabel: UILabel!
     
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        self.threshold = highscores.getHighscoreThreshold()
+        score = Game.instance.getWinner().getScore();
+        print(score)
+        nameInput.delegate = self
+        checkVisible()
+    }
+    
     func checkVisible(){
-        if (Int64(score) >= threshold){
+        if (score >= threshold){
             self.noUpdateLabel.hidden = true
-        }
-        else {
+            self.scoreLabel.text = String(score)
+        } else {
             self.nameLabel.hidden = true
             self.submitButton.hidden = true
             self.nameInput.hidden = true
@@ -32,16 +41,7 @@ class HighscoreListUpdateController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitClicked(sender: AnyObject) {
-        highscores.updateHighscores(Highscore(score: Int64(self.score), name: nameInput.description))
+        highscores.updateHighscores(Highscore(score: score, name: nameInput.text!))
+        self.performSegueWithIdentifier("moveToList", sender: self)
     }
-    
-    
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        self.threshold = highscores.getHighscoreThreshold()
-        
-        nameInput.delegate = self
-    }
-    
-    
 }

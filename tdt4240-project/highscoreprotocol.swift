@@ -12,14 +12,14 @@ protocol HighscoreList {
     // currentHighscores - liste av highscoreobjekter på max 10
     var currentHighscores: [Highscore]! {get set}
     var listName: String! {get}
-    var highscoreThreshold: Int64 {get set}
-    var listLength: Int64 {get set}
+    var highscoreThreshold: Int {get set}
+    var listLength: Int {get set}
     
     func updateHighscores(highscore: Highscore)
-    func updateHighscoreThreshold() -> Int64
+    func updateHighscoreThreshold() -> Int
     func clearHighscoreList()
     func getCurrentHighscores() -> [Highscore]
-    func getHighscoreThreshold() -> Int64
+    func getHighscoreThreshold() -> Int
     func getListName() -> String
     
     

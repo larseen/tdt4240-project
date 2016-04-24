@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        let game = Game.instance
+        game = Game.instance
         
         game.initGame(self.frame)
         
@@ -176,7 +176,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Called when game is over
     @objc func gameOver(notification: NSNotification) {
         // End game here
-        let winner = notification.userInfo!["winner"] as! Player // get winner like this
+        let _winner = notification.userInfo!["winner"] as! Player
+        game.setWinner(_winner)
+        self.viewController.performSegueWithIdentifier("moveToHighscore", sender: viewController)
     }
     
     deinit {

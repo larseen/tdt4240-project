@@ -10,7 +10,7 @@ import UIKit
 class Highscore: NSObject, NSCoding {
     // MARK: Properties
     
-    let score: Int64!
+    let score: Int!
     let date: NSDate!
     let name: String!
     
@@ -29,20 +29,13 @@ class Highscore: NSObject, NSCoding {
     
     // MARK: Initialization
     
-    init(score: Int64, name: String){
-        self.score=score
-        self.name=name
-        self.date=NSDate()
+    init(score: Int, name: String){
+        self.score = score
+        self.name = name
+        self.date = NSDate()
     }
     
-    init?(score: Int64, name: String, date: NSDate) {
-        self.score=score
-        self.name=name
-        self.date=date
-    }
-    
-    
-    func getScore() -> Int64 {
+    func getScore() -> Int {
         return  score
     }
     
@@ -54,16 +47,17 @@ class Highscore: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInt64(score, forKey: PropertyKey.scoreKey)
+        print ( aCoder.encodeInteger(score, forKey: PropertyKey.scoreKey))
+        aCoder.encodeInteger(score, forKey: PropertyKey.scoreKey)
         aCoder.encodeObject(date, forKey: PropertyKey.dateKey)
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        let score = aDecoder.decodeObjectForKey(PropertyKey.scoreKey) as! Int64
-        let date = aDecoder.decodeObjectForKey(PropertyKey.dateKey) as! NSDate
+    required convenience init(coder aDecoder: NSCoder) {
+        let score = aDecoder.decodeIntegerForKey(PropertyKey.scoreKey)
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        self.init(score: score, name: name, date: date) //samme som super.init() uten convenience?
+            self.init(score: score, name: name)
+    
     }
     
 }
