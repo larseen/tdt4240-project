@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var exitButton : UIButton! = nil
     var storyBoard : UIStoryboard! = nil
     var game : Game! = nil
+    var previousTimestamp : Double = 0.0
     
     var powerUpsHandler : PowerUpController?
     
@@ -49,18 +50,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)  {
-        var previousTimestamp = NSTimeInterval(0)
         let touch = touches.first
-        let location = touch!.locationInNode(self)
-        let oldPosition = touch!.previousLocationInNode(self)
+        let location = touch!.locationInView(self.view)
+        let oldPosition = touch!.previousLocationInView(self.view)
         let xOffset = oldPosition.x - location.x
         let yOffset = oldPosition.y - location.y
         let vectorLen = sqrt((xOffset * xOffset) + (yOffset * yOffset))
         let time = touch!.timestamp - previousTimestamp
-        let speed = (Double(vectorLen) / time)
+        let speed = 0.01 * Double(vectorLen) / time
         let CGSpeed = CGFloat(speed)
-        puck.updateDirection(CGVectorMake(250000*(CGSpeed*xOffset / vectorLen), 250000*(CGSpeed*yOffset / vectorLen)))
+        puck.updateDirection(CGVectorMake(CGSpeed*xOffset / vectorLen, CGSpeed*yOffset / vectorLen))
         previousTimestamp = touch!.timestamp
+        
         
         for touch in touches {
             if (self.paused){

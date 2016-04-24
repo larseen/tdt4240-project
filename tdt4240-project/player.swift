@@ -87,7 +87,9 @@ class Player {
         return ai
     }
     
+
     func getScoreBoard() -> ScoreBoard {
         return scoreBoard
     }
+
 }

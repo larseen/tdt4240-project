@@ -20,10 +20,11 @@ class Mallet: SKSpriteNode, SKPhysicsContactDelegate {
     
     func setPhysicsBody() {
         self.physicsBody?.restitution = 1
-        self.physicsBody?.mass = 500
+        self.physicsBody?.mass = 50000
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width/2)
         self.physicsBody?.categoryBitMask = CollisionCategories.malCol
         self.physicsBody?.contactTestBitMask = CollisionCategories.puckCol
+        self.physicsBody?.allowsRotation = false
     }
     
     required init?(coder aDecoder:NSCoder){
